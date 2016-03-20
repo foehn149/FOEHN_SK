@@ -48,12 +48,7 @@
             android:layout_gravity="center_horizontal"
             android:hint="Please provide feedback here"
             android:inputType="textPersonName" />
-        <Button
-            android:id="@+id/signup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Submit"
-            android:textStyle="bold" />
-        </LinearLayout>
+
+    </LinearLayout>
     </ScrollView>
 </android.support.v7.widget.LinearLayoutCompat>
