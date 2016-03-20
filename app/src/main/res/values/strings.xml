@@ -24,20 +24,13 @@
     <string name="create_account">create_account</string>
 
     <!-- Strings related to signup -->
-    <string name="firstname">First Name:</string>
-    <string name="editfirstname">first name</string>
-    <string name="lastname">Last Name:</string>
-    <string name="editlastname">last name</string>
-    <string name="mobileno">Mobile No:</string>
-    <string name="editmobileno">8888888888</string>
-    <string name="dob">Date of Birth:</string>
-    <string name="editdob">dd-mm-yyyy</string>
-    <string name="emailsignup">Email:</string>
-    <string name="editemailsignup">abc@123.com</string>
-    <string name="passwordsignup">Password:</string>
-    <string name="editpasswordsignup">******</string>
-    <string name="cpasswordsignup">Confirm Password:</string>
-    <string name="editcpasswordsignup">******</string>
+    <string name="fnameInput">First Name</string>
+    <string name="lnameInput">Last Name</string>
+    <string name="mobileInput">8888888888</string>
+    <string name="dobInput">DD-MM-YYYY</string>
+    <string name="emailInput">abc@123.com</string>
+    <string name="passInput">******</string>
+    <string name="cpassInput">******</string>
     <string name="signup">Sign up</string>
 
     <!-- Strings related to contactus -->
@@ -73,6 +66,8 @@
     <string name="store">Store</string>
     <string name="contactus">Contact us</string>
     <string name="login">Login</string>
+    <string name="welldoneText">WellDone</string>
+
 
     <!-- Srting related to fragment titles-->
     <string-array name="fragmenttitles">

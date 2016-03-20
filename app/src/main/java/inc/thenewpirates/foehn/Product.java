@@ -28,8 +28,7 @@ public class Product {
         this._pass = pass;
     }
 
-    public Product(String Product){
-
+    public Product(String Product) {
     }
 
     public int get_id() {
@@ -104,3 +103,4 @@ public class Product {
         this._gender = gender;
     }
 }
+

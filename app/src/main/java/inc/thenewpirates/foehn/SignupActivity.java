@@ -1,17 +1,12 @@
 package inc.thenewpirates.foehn;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.content.Intent;
 import android.content.Context;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Toast;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
-import java.net.URI;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -20,29 +15,27 @@ public class SignupActivity extends AppCompatActivity {
     Context context;
     Intent intent;
     Product p;
-    EditText fnameInput,lnameInput,mobileInput,dobInput,emailInput,passInput,cpassInput;
-
-
+    EditText fnameInput, lnameInput, mobileInput, dobInput, emailInput, passInput, cpassInput;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)throws NullPointerException{
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
         dbHandler = new MyDBHandler(this);
         dbHandler.open();
-        fnameInput = (EditText)findViewById(R.id.fnameInput);
-        lnameInput = (EditText)findViewById(R.id.lnameInput);
-        mobileInput = (EditText)findViewById(R.id.mobileInput);
-        dobInput = (EditText)findViewById(R.id.dobInput);
-        emailInput = (EditText)findViewById(R.id.emailInput);
-        passInput = (EditText)findViewById(R.id.passInput);
-        cpassInput = (EditText)findViewById(R.id.cpassInput);
+        fnameInput = (EditText) findViewById(R.id.fnameInput);
+        lnameInput = (EditText) findViewById(R.id.lnameInput);
+        mobileInput = (EditText) findViewById(R.id.mobileInput);
+        dobInput = (EditText) findViewById(R.id.dobInput);
+        emailInput = (EditText) findViewById(R.id.emailInput);
+        passInput = (EditText) findViewById(R.id.passInput);
+        cpassInput = (EditText) findViewById(R.id.cpassInput);
 
     }
 
-    public void signupButtonClicked(View view){
+    public void signupButtonClicked(View view) {
 
         String fname = fnameInput.getText().toString();
         String lname = lnameInput.getText().toString();
@@ -52,16 +45,14 @@ public class SignupActivity extends AppCompatActivity {
         String pass = passInput.getText().toString();
         String cpass = cpassInput.getText().toString();
 
-        if(dbHandler.checkEmail(email)) {
+        if (dbHandler.checkEmail(email)) {
             p = new Product(fname, lname, mobile, dob, email.toLowerCase(), pass, cpass);
             int c = dbHandler.addProduct(p);
             if (c == 0) {
                 intent = new Intent(SignupActivity.this, Mypage.class);
                 startActivity(intent);
-
             }
-        }
-        else{
+        } else {
             intent = new Intent(SignupActivity.this, LoginActivity.class);
             startActivity(intent);
         }
@@ -79,7 +70,7 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
-    public void switchToLogin(){
+    public void switchToLogin() {
         /*intent = new Intent(SignupActivity.this, LoginActivity.class);
         startActivity(intent);*/
         Toast.makeText(context, " Please Login ", Toast.LENGTH_LONG).show();

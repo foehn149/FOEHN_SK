@@ -44,11 +44,11 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+
         if (savedInstanceState == null) {
             setContentView(R.layout.activity_home);
         }
-
+        setContentView(R.layout.activity_home);
         mtitle = getTitle();
         fragmenttitles = getResources().getStringArray(R.array.fragmenttitles);
         // Set a Toolbar to replace the ActionBar.
