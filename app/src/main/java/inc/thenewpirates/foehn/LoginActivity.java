@@ -1,7 +1,7 @@
 package inc.thenewpirates.foehn;
 
-
 import android.content.Intent;
+import android.content.Context;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,83 +10,87 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText emailedittext, passedittext;
-    View focusView;
+    //View focusView;
     Button signinbutton;
+    //View view;
+    EditText fnameInput,lnameInput,mobileInput,dobInput,emailInput,passInput,cpassInput;
     FloatingActionButton fab;
-    Intent i = new Intent();
+    Intent i;
     String email, password;
     Toast t;
+    MyDBHandler dbHandler;
+    private Context context;
+    Product p;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) throws NullPointerException {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        emailedittext = (EditText) findViewById(R.id.email);
-        passedittext = (EditText) findViewById(R.id.password);
-        signinbutton = (Button) findViewById(R.id.sign_in_button);
-        signinbutton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-
-                emailedittext.setError(null);
-                passedittext.setError(null);
-
-                email = emailedittext.getText().toString();
-                password = passedittext.getText().toString();
-
-                if (!isEmailValid(email)) {
-                    emailedittext.setError(getString(R.string.error_invalid_email));
-                    focusView = emailedittext;
-                    focusView.requestFocus();
-                } else if (!isPasswordValid(password)) {
-                    passedittext.setError(getString(R.string.error_invalid_password));
-                    focusView = passedittext;
-                    focusView.requestFocus();
-                } else if (isEmailValid(email) && isPasswordValid(password)) {
-                    i.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.HomeActivity");
-                    startActivity(i);
-                }
-
-            }
-        });
+        dbHandler = new MyDBHandler(this);
+        dbHandler.open();
+        fnameInput = (EditText)findViewById(R.id.fnameInput);
+        lnameInput = (EditText)findViewById(R.id.lnameInput);
+        mobileInput = (EditText)findViewById(R.id.mobileInput);
+        dobInput = (EditText)findViewById(R.id.dobInput);
+        emailInput = (EditText)findViewById(R.id.email);
+        passInput = (EditText)findViewById(R.id.password);
+        cpassInput = (EditText)findViewById(R.id.cpassInput);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                i.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.SignupActivity");
+            public void onClick(View view){
+                i = new Intent(LoginActivity.this,SignupActivity.class);
                 startActivity(i);
-                ;
+
             }
         });
+    }
+
+    public void checkButtonClicked(View view ){
+        /*String productname = emailInput.getText().toString();
+        String password = passInput.getText().toString();*/
+        String email = emailInput.getText().toString();
+        String pass = passInput.getText().toString();
+
+
+        p = new Product(email.toLowerCase(),pass);
+        String abc = dbHandler.checkRecord(p);
+        String abc1 = "yeah";
+        if(abc.equals(abc1)){
+            //myOutput.setText(abc);
+            i  = new Intent(LoginActivity.this,Mypage.class);
+            startActivity(i);
+        }
     }
 
 
     private boolean isEmailValid(String email) {
-
         String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-
         Pattern pattern = Pattern.compile(EMAIL_PATTERN);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
-
     }
 
     private boolean isPasswordValid(String password) {
+        boolean a = false ;
+        String as = "";
+        if(!password.equals(as))
+            a=true;
 
-        if (password != null && password.length() >= 4) {
-            return true;
-        }
-        return false;
+        return a;
     }
 
-
+    @Override
+    protected void onDestroy() {
+        dbHandler.close();
+        super.onDestroy();
+    }
 }
 
 

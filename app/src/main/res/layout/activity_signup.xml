@@ -4,6 +4,7 @@
     android:id="@+id/signup_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fffffe"
     android:orientation="vertical"
     android:paddingBottom="@dimen/vertical_margin"
     android:paddingLeft="@dimen/horizontal_margin"
@@ -20,138 +21,91 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/firstname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/firstname"
-                android:textSize="@dimen/textsize"
-                android:textStyle="bold" />
-
 
             <EditText
-                android:id="@+id/editfirstname"
+                android:id="@+id/fnameInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:hint="@string/editfirstname"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/lastname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/lastname"
-                android:textSize="@dimen/textsize"
-                android:textStyle="bold" />
+                android:hint="@string/firstnameText"
+                android:inputType="textPersonName"
+                android:gravity="center"
+                android:width="300dp" />
 
             <EditText
-                android:id="@+id/editlastname"
+                android:id="@+id/lnameInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:hint="@string/editlastname"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/mobileno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/mobileno"
-                android:textSize="@dimen/textsize"
-                android:textStyle="bold" />
+                android:hint="@string/lastnameText"
+                android:inputType="textPersonName"
+                android:gravity="center"
+                android:width="300dp" />
 
             <EditText
-                android:id="@+id/editmobileno"
+                android:id="@+id/mobileInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:hint="@string/editmobileno"
-                android:inputType="number" />
+                android:inputType="number"
+                android:gravity="center"
+                android:width="300dp"/>
 
-            <TextView
-                android:id="@+id/dob"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/dob"
-                android:textSize="@dimen/textsize"
-                android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editdob"
+                android:id="@+id/dobInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:hint="@string/editdob"
-                android:inputType="date" />
-
-            <TextView
-                android:id="@+id/emailsignup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/emailsignup"
-                android:textSize="@dimen/textsize"
-                android:textStyle="bold" />
+                android:hint="DD-MM-YYYY"
+                android:inputType="date"
+                android:selectAllOnFocus="false"
+                android:gravity="center"
+                android:width="300dp" />
 
             <EditText
-                android:id="@+id/editemailsignup"
+                android:id="@+id/emailInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:hint="@string/editemailsignup"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:singleLine="true" />
-
-            <TextView
-                android:id="@+id/passwordsignup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/passwordsignup"
-                android:textSize="@dimen/textsize"
-                android:textStyle="bold" />
+                android:singleLine="true"
+                android:gravity="center"
+                android:width="300dp" />
 
             <EditText
-                android:id="@+id/editpasswordsignup"
+                android:id="@+id/passInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:hint="@string/editpasswordsignup"
+                android:hint="@string/passwordInputText"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:singleLine="true" />
-
-            <TextView
-                android:id="@+id/cpasswordsignup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/cpasswordsignup"
-                android:textSize="@dimen/textsize"
-                android:textStyle="bold" />
+                android:singleLine="true"
+                android:gravity="center"
+                android:width="300dp" />
 
             <EditText
-                android:id="@+id/editcpasswordsignup"
+                android:id="@+id/cpassInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:hint="@string/editcpasswordsignup"
+                android:hint="@string/confirmpasswordInputText"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:gravity="center"
+                android:width="30dp" />
 
             <Button
-                android:id="@+id/signup"
+                android:id="@+id/signupButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/signup"
-                android:textStyle="bold" />
+                android:onClick="signupButtonClicked" />
         </LinearLayout>
     </ScrollView>
 </android.support.v7.widget.LinearLayoutCompat>

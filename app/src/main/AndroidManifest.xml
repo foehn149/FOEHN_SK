@@ -11,23 +11,25 @@
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/appicon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:hardwareAccelerated="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".HomeActivity"
-            android:label="@string/app_name"
-            android:launchMode="singleTask"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".HomeActivity">
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="inc.thenewpirates.foehn.HomeActivity" />
@@ -42,39 +44,38 @@
 
         <activity
             android:name=".LoginActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
+            android:hardwareAccelerated="true"
             android:label="@string/title_activity_login"
             android:launchMode="singleTask"
-            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
-            android:hardwareAccelerated="true"
             android:parentActivityName=".HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="inc.thenewpirates.foehn.HomeActivity" />
         </activity>
-
         <activity
             android:name=".WebviewActivity"
-            android:label="@string/title_activity_webview"
-            android:launchMode="singleTask"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
+            android:label="@string/title_activity_webview"
+            android:launchMode="singleTask"
             android:parentActivityName=".HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="inc.thenewpirates.foehn.HomeActivity" />
         </activity>
-
-        <activity android:name=".SignupActivity"
-            android:label="@string/title_activity_signup"
-            android:launchMode="singleTask"
+        <activity
+            android:name=".SignupActivity"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
+            android:label="@string/title_activity_signup"
+            android:launchMode="singleTask"
             android:parentActivityName=".LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="inc.thenewpirates.foehn.LoginActivity" />
         </activity>
-
+        <activity android:name=".Mypage"></activity>
     </application>
 
 </manifest>

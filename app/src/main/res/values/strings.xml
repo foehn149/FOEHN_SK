@@ -49,12 +49,18 @@
     <string name="naturalcalamities">Natural Calamities</string>
 
     <string name="aboutusdetail">
-        <br/>It is an android donation application where different sectors of needy people are given funds for development and betterment of their welfare. We fund some of areas Viz. Food sector, Orphans associations, Education centers, Health centers and areas affected by Natural calamities.<br/>
-        People around the world can just login and donate for needy people. We have secured protection for our donors as their donations will rely to the people securely. Donors will be informed the info about recent involvements and related notifications respectively.<br/>
-        We have a store, where people can buy products to promote the charity funding as promoting will boost the donations results in betterments of locality of situations. We have clothing, accessories for promoting the charity what people can buy the best quality what they could go for.<br/>
-        A secure database systems installed in place for a proper management of various data credential sectors of organization as well as Customers management.<br/>
+        <br />It is an android donation application where different sectors of needy people are given funds for development and betterment of their welfare. We fund some of areas Viz. Food sector, Orphans associations, Education centers, Health centers and areas affected by Natural calamities.<br />
+        People around the world can just login and donate for needy people. We have secured protection for our donors as their donations will rely to the people securely. Donors will be informed the info about recent involvements and related notifications respectively.<br />
+        We have a store, where people can buy products to promote the charity funding as promoting will boost the donations results in betterments of locality of situations. We have clothing, accessories for promoting the charity what people can buy the best quality what they could go for.<br />
+        A secure database systems installed in place for a proper management of various data credential sectors of organization as well as Customers management.<br />
     </string>
     <string name="app_fullname">FOEHN - A Global Charity Trust</string>
+    <string name="welldoneText">Welldone</string>
+    <string name="firstnameText">First name</string>
+    <string name="lastnameText">Lat name</string>
+    <string name="dateText">DD_MM_YYYY</string>
+    <string name="passwordInputText">Password</string>
+    <string name="confirmpasswordInputText">Confirm Password</string>
 
     <string-array name="fragmenttitles">
         <item>Food</item>
