@@ -1,16 +1,18 @@
 <resources>
     <string name="app_name">FOEHN</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_fullname">FOEHN - A Global Charity Trust</string>
     <string name="app_logo">App Logo</string>
+
     <!-- Strings related to navigation -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="aboutus">About us</string>
+    <!-- Strings related to actionbar title -->
     <string name="visit_foehn">Visit Foehn</string>
-    <string name="title_activity_login">Login</string>
+    <string name="title_activity_login">Log in</string>
     <string name="title_activity_webview">FOEHN Website</string>
-    <string name="title_activity_signup">Signup</string>
+    <string name="title_activity_signup">Sign up</string>
 
     <!-- Strings related to login -->
     <string name="email">Email</string>
@@ -37,10 +39,12 @@
     <string name="cpasswordsignup">Confirm Password:</string>
     <string name="editcpasswordsignup">******</string>
     <string name="signup">Sign up</string>
+
     <!-- Strings related to contactus -->
     <string name="version">Version 1.0</string>
     <string name="feedback">Feedback</string>
     <string name="support">support@foehn.comli.com</string>
+
     <!-- Strings related to donate -->
     <string name="food">Food</string>
     <string name="orphan">Orphan</string>
@@ -48,14 +52,29 @@
     <string name="health">Health</string>
     <string name="naturalcalamities">Natural Calamities</string>
 
+    <!-- Strings related to aboutus -->
+    <string name="aboutus">About us</string>
     <string name="aboutusdetail">
-        <br/>It is an android donation application where different sectors of needy people are given funds for development and betterment of their welfare. We fund some of areas Viz. Food sector, Orphans associations, Education centers, Health centers and areas affected by Natural calamities.<br/>
-        People around the world can just login and donate for needy people. We have secured protection for our donors as their donations will rely to the people securely. Donors will be informed the info about recent involvements and related notifications respectively.<br/>
-        We have a store, where people can buy products to promote the charity funding as promoting will boost the donations results in betterments of locality of situations. We have clothing, accessories for promoting the charity what people can buy the best quality what they could go for.<br/>
-        A secure database systems installed in place for a proper management of various data credential sectors of organization as well as Customers management.<br/>
+        It is an android donation application where different sectors of needy people are given funds for development and betterment of their welfare. We fund some of areas Viz. Food sector, Orphans associations, Education centers, Health centers and areas affected by Natural calamities.<br />
+        People around the world can just login and donate for needy people. We have secured protection for our donors as their donations will rely to the people securely. Donors will be informed the info about recent involvements and related notifications respectively.<br />
+        We have a store, where people can buy products to promote the charity funding as promoting will boost the donations results in betterments of locality of situations. We have clothing, accessories for promoting the charity what people can buy the best quality what they could go for.<br />
+        A secure database systems installed in place for a proper management of various data credential sectors of organization as well as Customers management.<br />
     </string>
-    <string name="app_fullname">FOEHN - A Global Charity Trust</string>
 
+    <!-- Srting related to feedback-->
+    <string name="feedbackfname">First Name</string>
+    <string name="feedbacklname">Last Name</string>
+    <string name="feedbackdetail">Please provide feedback here</string>
+    <string name="feedbacksubmit">Submit</string>
+
+    <!-- Srting related to navigation drawer-->
+    <string name="home">Home</string>
+    <string name="donation">Donation</string>
+    <string name="store">Store</string>
+    <string name="contactus">Contact us</string>
+    <string name="login">Login</string>
+
+    <!-- Srting related to fragment titles-->
     <string-array name="fragmenttitles">
         <item>Food</item>
         <item>Orphan</item>

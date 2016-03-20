@@ -45,6 +45,9 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        if (savedInstanceState == null) {
+            setContentView(R.layout.activity_home);
+        }
 
         mtitle = getTitle();
         fragmenttitles = getResources().getStringArray(R.array.fragmenttitles);
@@ -134,10 +137,9 @@ public class HomeActivity extends AppCompatActivity {
 
     public void foodprocess(View v) {
         setTitle(fragmenttitles[0]);
-        FoodDonateFragment fd = new FoodDonateFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction
-                .replace(R.id.nav_home, fd)
+                .replace(R.id.nav_home, new FoodDonateFragment())
                 .addToBackStack("Food")
                 .commit();
         mdrawerlayout.closeDrawer(GravityCompat.START);
@@ -146,10 +148,9 @@ public class HomeActivity extends AppCompatActivity {
 
     public void orphanprocess(View v) {
         setTitle(fragmenttitles[1]);
-        OrphanDonateFragment od = new OrphanDonateFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction
-                .replace(R.id.nav_home, od)
+                .replace(R.id.nav_home, new OrphanDonateFragment())
                 .addToBackStack("Orphan")
                 .commit();
         mdrawerlayout.closeDrawer(GravityCompat.START);
@@ -158,11 +159,9 @@ public class HomeActivity extends AppCompatActivity {
 
     public void educationprocess(View v) {
         setTitle(fragmenttitles[2]);
-        EducationDonateFragment ed = new EducationDonateFragment();
-        getSupportFragmentManager().beginTransaction().commit();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction
-                .replace(R.id.nav_home, ed)
+                .replace(R.id.nav_home, new EducationDonateFragment())
                 .addToBackStack("Education")
                 .commit();
         mdrawerlayout.closeDrawer(GravityCompat.START);
@@ -171,10 +170,9 @@ public class HomeActivity extends AppCompatActivity {
 
     public void healthprocess(View v) {
         setTitle(fragmenttitles[3]);
-        HealthDonateFragment hd = new HealthDonateFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction
-                .replace(R.id.nav_home, hd)
+                .replace(R.id.nav_home, new HealthDonateFragment())
                 .addToBackStack("Health")
                 .commit();
         mdrawerlayout.closeDrawer(GravityCompat.START);
@@ -183,38 +181,34 @@ public class HomeActivity extends AppCompatActivity {
 
     public void naturalcalamitiesprocess(View v) {
         setTitle(fragmenttitles[4]);
-        NaturalCalamitiesDonateFragment ncd = new NaturalCalamitiesDonateFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction
-                .replace(R.id.nav_home, ncd)
+                .replace(R.id.nav_home, new NaturalCalamitiesDonateFragment())
                 .addToBackStack("Natural Calamities")
                 .commit();
         mdrawerlayout.closeDrawer(GravityCompat.START);
 
     }
 
-    public void aboutusprocess(View v1) throws NullPointerException {
+    public void aboutusprocess(View v1) {
 
         setTitle(fragmenttitles[5]);
-        AboutusFragment au = new AboutusFragment();
-        getSupportFragmentManager().beginTransaction().commit();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction
-                .replace(R.id.nav_home, au)
+                .replace(R.id.nav_home, new AboutusFragment())
                 .addToBackStack("About us")
                 .commit();
         mdrawerlayout.closeDrawer(GravityCompat.START);
 
     }
 
-    public void feedbackprocess(View view) throws NullPointerException {
+    public void feedbackprocess(View view) {
 
         setTitle(fragmenttitles[6]);
         int id = view.getId();
         if (id == R.id.cuimagebutton) {
-            FeedbackFragment fb = new FeedbackFragment();
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.nav_home, fb)
+            transaction.replace(R.id.nav_home, new FeedbackFragment())
                     .addToBackStack("Feedback")
                     .commit();
             mdrawerlayout.closeDrawer(GravityCompat.START);
@@ -252,7 +246,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void home(View v) {
         // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.HomeActivity");
         startActivity(intent);
         mdrawerlayout.closeDrawer(GravityCompat.START);
@@ -260,9 +254,8 @@ public class HomeActivity extends AppCompatActivity {
 
     public void donation(View v) {
         setTitle(fragmenttitles[7]);
-        DonationFragment dof = new DonationFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_home, dof)
+        transaction.replace(R.id.nav_home, new DonationFragment())
                 .addToBackStack("Donation")
                 .commit();
         mdrawerlayout.closeDrawer(GravityCompat.START);
@@ -270,9 +263,8 @@ public class HomeActivity extends AppCompatActivity {
 
     public void store(View v) {
         setTitle(fragmenttitles[8]);
-        StoreFragment stf = new StoreFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_home, stf)
+        transaction.replace(R.id.nav_home, new StoreFragment())
                 .addToBackStack("Store")
                 .commit();
         mdrawerlayout.closeDrawer(GravityCompat.START);
@@ -280,9 +272,8 @@ public class HomeActivity extends AppCompatActivity {
 
     public void contactus(View v) {
         setTitle(fragmenttitles[9]);
-        ContactusFragment cusf = new ContactusFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_home, cusf)
+        transaction.replace(R.id.nav_home, new ContactusFragment())
                 .addToBackStack("Contact us")
                 .commit();
         mdrawerlayout.closeDrawer(GravityCompat.START);

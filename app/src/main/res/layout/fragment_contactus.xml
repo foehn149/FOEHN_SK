@@ -56,7 +56,7 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center"
         android:clickable="true"
-        android:drawableLeft="@drawable/pencil"
+        android:drawableLeft="@drawable/feedback"
         android:drawablePadding="6dp"
         android:onClick="feedbackprocess"
         android:text="@string/feedback" />

@@ -25,20 +25,20 @@
 
 
         <EditText
-            android:id="@+id/editfirstname"
+            android:id="@+id/feedbackfname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:hint="First Name"
+            android:hint="@string/feedbackfname"
             android:inputType="textPersonName" />
 
 
         <EditText
-            android:id="@+id/editlastname"
+            android:id="@+id/feedbacklname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:hint="Last Name"
+            android:hint="@string/feedbacklname"
             android:inputType="textPersonName" />
 
         <EditText
@@ -46,14 +46,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:hint="Please provide feedback here"
+            android:hint="@string/feedbackdetail"
             android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/submitButton"
+            android:id="@+id/feedbacksubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit"
+            android:text="@string/feedbacksubmit"
             android:textStyle="bold" />
 
     </LinearLayout>

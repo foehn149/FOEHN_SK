@@ -1,8 +1,10 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources>
     <item name="Home" type="drawable">@drawable/home</item>
-    <item name="Online" type="drawable">@drawable/online</item>
+    <item name="Donation" type="drawable">@drawable/donate_36</item>
     <item name="Store" type="drawable">@drawable/store</item>
-    <item name="Aboutus" type="drawable">@drawable/aboutus</item>
-    <item name="Contactus" type="drawable">@drawable/contactus</item>
+    <item name="Contactus" type="drawable">@drawable/phone</item>
     <item name="Login" type="drawable">@drawable/login</item>
+    <item name="Feedback" type="drawable">@drawable/feedback</item>
+    <item name="visitfoehn" type="drawable">@drawable/visitfoehn</item>
+    <item name="fab" type="drawable">@drawable/donatefab</item>
 </resources>
