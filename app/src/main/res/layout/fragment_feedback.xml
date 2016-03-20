@@ -23,32 +23,6 @@
         android:paddingTop="@dimen/vertical_margin"
         android:orientation="vertical">
 
-
-        <EditText
-            android:id="@+id/editfirstname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:hint="First Name"
-            android:inputType="textPersonName" />
-
-
-        <EditText
-            android:id="@+id/editlastname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:hint="Last Name"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/feedbackdetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:hint="Please provide feedback here"
-            android:inputType="textPersonName" />
-
     </LinearLayout>
     </ScrollView>
 </android.support.v7.widget.LinearLayoutCompat>
