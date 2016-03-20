@@ -49,6 +49,13 @@
             android:hint="Please provide feedback here"
             android:inputType="textPersonName" />
 
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/signup"
+            android:textStyle="bold" />
+
     </LinearLayout>
     </ScrollView>
 </android.support.v7.widget.LinearLayoutCompat>
