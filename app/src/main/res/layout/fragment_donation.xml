@@ -1,0 +1,119 @@
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_donation"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/vertical_margin"
+    android:paddingLeft="@dimen/horizontal_margin"
+    android:paddingRight="@dimen/horizontal_margin"
+    android:paddingTop="@dimen/vertical_margin"
+    tools:context="inc.thenewpirates.foehn.DonationFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/food"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/food"
+                android:textSize="@dimen/textsizebig"
+                android:textStyle="bold"
+                android:onClick="foodprocess"
+                android:clickable="true"/>
+
+            <ImageView
+                android:id="@+id/imageViewFood"
+                android:contentDescription="@string/food"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/f" />
+
+            <TextView
+                android:id="@+id/orphan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/orphan"
+                android:textSize="@dimen/textsizebig"
+                android:textStyle="bold"
+                android:onClick="orphanprocess"
+                android:clickable="true"/>
+
+            <ImageView
+                android:id="@+id/imageVieworphan"
+                android:contentDescription="@string/orphan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/o" />
+
+            <TextView
+                android:id="@+id/education"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/education"
+                android:textSize="@dimen/textsizebig"
+                android:textStyle="bold"
+                android:onClick="educationprocess"
+                android:clickable="true"/>
+
+            <ImageView
+                android:id="@+id/imageVieweducation"
+                android:contentDescription="@string/education"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/e"/>
+
+            <TextView
+                android:id="@+id/health"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/health"
+                android:textSize="@dimen/textsizebig"
+                android:textStyle="bold"
+                android:onClick="healthprocess"
+                android:clickable="true"/>
+
+            <ImageView
+                android:id="@+id/imageViewhealth"
+                android:contentDescription="@string/health"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/h"/>
+
+            <TextView
+                android:id="@+id/naturalcalamities"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/naturalcalamities"
+                android:textSize="@dimen/textsizebig"
+                android:textStyle="bold"
+                android:onClick="naturalcalamitiesprocess"
+                android:clickable="true"/>
+
+            <ImageView
+                android:id="@+id/imageViewnaturalcalamities"
+                android:contentDescription="@string/naturalcalamities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/nc"/>
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.v7.widget.LinearLayoutCompat>
