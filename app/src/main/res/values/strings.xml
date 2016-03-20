@@ -48,10 +48,58 @@
     <!-- Strings related to aboutus -->
     <string name="aboutus">About us</string>
     <string name="aboutusdetail">
-        It is an android donation application where different sectors of needy people are given funds for development and betterment of their welfare. We fund some of areas Viz. Food sector, Orphans associations, Education centers, Health centers and areas affected by Natural calamities.<br />
-        People around the world can just login and donate for needy people. We have secured protection for our donors as their donations will rely to the people securely. Donors will be informed the info about recent involvements and related notifications respectively.<br />
-        We have a store, where people can buy products to promote the charity funding as promoting will boost the donations results in betterments of locality of situations. We have clothing, accessories for promoting the charity what people can buy the best quality what they could go for.<br />
+        It is an android donation application where different sectors of needy people are given funds for development and betterment of their welfare. <br />
+        We fund some of areas Viz. Food sector, Orphans associations, Education centers, Health centers and areas affected by Natural calamities.<br />
+        People around the world can just login and donate for needy people. We have secured protection for our donors as their donations will rely to the people securely. <br />
+        Donors will be informed the info about recent involvements and related notifications respectively.<br />
+        We have a store, where people can buy products to promote the charity funding as promoting will boost the donations results in betterments of locality of situations.<br />
+        We have clothing, accessories for promoting the charity what people can buy the best quality what they could go for.<br />
         A secure database systems installed in place for a proper management of various data credential sectors of organization as well as Customers management.<br />
+    </string>
+
+    <!-- Strings related to fooddonate -->
+
+    <string name="fooddonate">
+        Our food program is to initiate the help towards people who are struggling to get the food.<br />
+        We are here to provide them with the funds that has been donated.<br />
+        There are various regions on earth where people are unable to get the basic need of food and their backward community cannot even do something about it. <br />
+        What the food providing organizations demand for is money. We are providing the money through our donations. Please help people in need .<br />
+     </string>
+
+    <!-- Strings related to orphandonate -->
+    <string name="orphandonate">
+        Our orphans program is to initiate the help orphans and orphanages that manage to hold valuable life.<br />
+        We fund many organizations that looks over the orphanages and related issues.<br />
+        Orphans have a bright future if proper care is taken and nourishing.<br />
+        We are here to provide them with support and hope for betterment of their life in hands to grow up their lives happily.<br />
+        The total population of orphans is nourished properly and given proper education they are our future generation that can change the world.<br />
+        Please help theses growing cubs.<br />
+
+    </string>
+
+    <!-- Strings related to educationdonate -->
+    <string name="educationdonate">
+        Our education program is to support the education academies and government schools and different primary and secondary level panchayat schools to educate children and let the children make their life prosperous. <br />
+        Many places people are backing off in education and livelihood as they are not provided with proper education system and the knowledge resources and material.<br />
+        We provide funds to some of government schools and panchayat schools to manage all these educations issues to eradicate. Let the child learn and lead and rule the world.<br />
+        Please support people these needy people.<br />
+    </string>
+
+    <!-- Strings related to healthdonate -->
+    <string name="healthdonate">
+        Our health program is to initiate the help to people need for money for treatment in un-affordable hospitals.<br />
+        We fund to different government hospitals for free treatment of the patients. <br />
+        People in Remote locations of countries cannot reach the hospitals in urban area during emergency cases so we are funding different NGOs to even provide those remote locations a hospital in terms to save people in emergence. <br />
+        A healthy country is wealthy country.<br />
+    </string>
+
+    <!-- Strings related to naturalcalamitiesdonate -->
+    <string name="naturalcalamitiesdonate">
+        Our natural-calamity program is to initiate help and providing immediate relief and assists in the rehabilitation process of the affected communities in the aftermath of any calamity.<br />
+        We help communities build their capacity to better cope with and recover from disasters. Our foremost goal is to build resilience among the community and various stakeholders in case of any disaster.<br />
+        We work closely with communities, who have been affected by disasters, so that long term development of the communities with sustainable livelihood opportunities may be secured and they are better equipped in future.<br />
+        These are people who lost their home n surroundings waiting for hope to make and settle their life again back to normal. Government cannot handle entire budget to tackle act of natural calamities.<br />
+        Please help these sensitive and needy people in terms to give them a better future.<br />
     </string>
 
     <!-- Srting related to feedback-->
@@ -68,6 +116,26 @@
     <string name="login">Login</string>
     <string name="welldoneText">WellDone</string>
 
+    <!-- Srting related to payment method-->
+    <string name="cardpayment">Card Payment</string>
+    <string name="netbanking">Net Banking</string>
+    <string name="paypal">Paypal</string>
+
+    <!-- Srting related to card payment-->
+    <string name="cardnoInput">Card Number</string>
+    <string name="expirydateInput">Expiry Date</string>
+    <string name="cvvInput">CVV</string>
+    <string name="cardnameInput">Card Name</string>
+
+    <string name="continueprocedure">Continue procedure</string>
+
+    <!-- Srting related to netbanking-->
+    <string name="hdfcbank">HDFC Bank</string>
+    <string name="icicibank">ICICI Bank</string>
+    <string name="citibank">Citi Bank</string>
+    <string name="sbibank">State Bank of India</string>
+    <string name="axisbank">AXIS Bank</string>
+    <string name="kotakbank">Kotak Bank</string>
 
     <!-- Srting related to fragment titles-->
     <string-array name="fragmenttitles">
@@ -81,6 +149,9 @@
         <item>Donation</item>
         <item>Store</item>
         <item>Contact us</item>
+        <item>Payment Method</item>
+        <item>Card Payment</item>
+        <item>Net Banking</item>
     </string-array>
 
 </resources>

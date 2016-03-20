@@ -1,7 +1,7 @@
 package inc.thenewpirates.foehn;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -15,6 +15,7 @@ public class WebviewActivity extends AppCompatActivity {
         webView = (WebView) findViewById(R.id.webView1);
 
         startWebView("http://www.foehn.comli.com");
+
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);

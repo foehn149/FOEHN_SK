@@ -1,13 +1,10 @@
 package inc.thenewpirates.foehn;
 
-import android.app.FragmentManager;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
@@ -16,7 +13,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,8 +21,6 @@ import android.widget.TextView;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-
-import java.util.Stack;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -103,6 +97,93 @@ public class HomeActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(mtitle);
         }
+    }
+
+
+    public void paymentmethod(View view) {
+        setTitle(fragmenttitles[10]);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction
+                .replace(R.id.nav_home, new PaymentMethodFragment())
+                .addToBackStack("Payment Method")
+                .commit();
+        mdrawerlayout.closeDrawer(GravityCompat.START);
+    }
+
+    public void cardpaymentprocess(View view) {
+        setTitle(fragmenttitles[11]);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction
+                .replace(R.id.nav_home, new CardPaymentFragment())
+                .addToBackStack("Card Payment")
+                .commit();
+        mdrawerlayout.closeDrawer(GravityCompat.START);
+    }
+
+    public void netbankingprocess(View view) {
+        setTitle(fragmenttitles[12]);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction
+                .replace(R.id.nav_home, new NetBankingFragment())
+                .addToBackStack("Net Banking")
+                .commit();
+        mdrawerlayout.closeDrawer(GravityCompat.START);
+    }
+
+    public void netbanking(View view) {
+        int id = view.getId();
+        if (id == R.id.hdfcbank) {
+            mdrawerlayout.closeDrawer(GravityCompat.START);
+            Uri uriUrl = Uri.parse("http://www.hdfcbank.com/");
+            intent = new Intent(Intent.ACTION_VIEW, uriUrl);
+            intent = Intent.createChooser(intent, "HDFC Bank");
+            startActivity(intent);
+
+        } else if (id == R.id.icicibank) {
+            mdrawerlayout.closeDrawer(GravityCompat.START);
+            Uri uriUrl = Uri.parse("http://www.icicibank.com/");
+            intent = new Intent(Intent.ACTION_VIEW, uriUrl);
+            intent = Intent.createChooser(intent, "ICICI Bank");
+            startActivity(intent);
+        } else if (id == R.id.citibank) {
+            mdrawerlayout.closeDrawer(GravityCompat.START);
+            Uri uriUrl = Uri.parse("https://www.online.citibank.co.in/");
+            intent = new Intent(Intent.ACTION_VIEW, uriUrl);
+            intent = Intent.createChooser(intent, "Citi Bank");
+            startActivity(intent);
+        } else if (id == R.id.sbibank) {
+            mdrawerlayout.closeDrawer(GravityCompat.START);
+            Uri uriUrl = Uri.parse("https://www.sbi.co.in/");
+            intent = new Intent(Intent.ACTION_VIEW, uriUrl);
+            intent = Intent.createChooser(intent, "SBI Bank");
+            startActivity(intent);
+        } else if (id == R.id.axisbank) {
+            mdrawerlayout.closeDrawer(GravityCompat.START);
+            Uri uriUrl = Uri.parse("http://www.axisbank.com/");
+            intent = new Intent(Intent.ACTION_VIEW, uriUrl);
+            intent = Intent.createChooser(intent, "AXIS Bank");
+            startActivity(intent);
+        } else if (id == R.id.kotakbank) {
+            mdrawerlayout.closeDrawer(GravityCompat.START);
+            Uri uriUrl = Uri.parse("http://www.kotak.com/");
+            intent = new Intent(Intent.ACTION_VIEW, uriUrl);
+            intent = Intent.createChooser(intent, "Kotak Bank");
+            startActivity(intent);
+        }
+    }
+
+
+    public void calltopaypal(View view) {
+        int id = view.getId();
+        if (id == R.id.paypal) {
+            mdrawerlayout.closeDrawer(GravityCompat.START);
+            Uri uriUrl = Uri.parse("https://www.paypal.com/signin/?country.x=IN&locale.x=en_IN");
+            intent = new Intent(Intent.ACTION_VIEW, uriUrl);
+            intent = Intent.createChooser(intent, "Paypal");
+            startActivity(intent);
+
+        }
+
     }
 
     public void supportprocess(View view) {

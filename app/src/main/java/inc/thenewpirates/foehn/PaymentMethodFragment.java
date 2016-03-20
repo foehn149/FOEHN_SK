@@ -7,9 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class DonateTypeFragment extends Fragment {
+public class PaymentMethodFragment extends Fragment {
 
-    public DonateTypeFragment() {
+    public PaymentMethodFragment() {
         // Required empty public constructor
     }
 
@@ -23,7 +23,7 @@ public class DonateTypeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_donatetype, container, false);
+        return inflater.inflate(R.layout.fragment_paymentmethod, container, false);
     }
 
     @Override

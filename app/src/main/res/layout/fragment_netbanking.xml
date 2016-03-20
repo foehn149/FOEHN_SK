@@ -1,0 +1,79 @@
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/netbankingfragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="inc.thenewpirates.foehn.BankFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+
+            <Button
+                android:id="@+id/hdfcbank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:onClick="netbanking"
+                android:text="@string/hdfcbank" />
+
+            <Button
+                android:id="@+id/icicibank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:onClick="netbanking"
+                android:text="@string/icicibank" />
+
+            <Button
+                android:id="@+id/citibank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:onClick="netbanking"
+                android:text="@string/citibank" />
+
+            <Button
+                android:id="@+id/sbibank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:onClick="netbanking"
+                android:text="@string/sbibank" />
+
+            <Button
+                android:id="@+id/axisbank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:onClick="netbanking"
+                android:text="@string/axisbank" />
+
+            <Button
+                android:id="@+id/kotakbank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:onClick="netbanking"
+                android:text="@string/kotakbank" />
+
+            <Button
+                android:id="@+id/continueprocedure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/continueprocedure"
+                android:enabled="true" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.v7.widget.LinearLayoutCompat>
