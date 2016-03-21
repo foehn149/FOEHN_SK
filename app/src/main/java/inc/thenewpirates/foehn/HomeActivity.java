@@ -29,26 +29,23 @@ public class HomeActivity extends AppCompatActivity {
     NavigationView navView;
     ActionBarDrawerToggle drawerToggle;
     Intent intent = new Intent();
-    private GoogleApiClient client;
     TextView textview;
     View view1;
     CharSequence mtitle;
     String[] fragmenttitles;
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (savedInstanceState == null) {
-            setContentView(R.layout.activity_home);
-        }
         setContentView(R.layout.activity_home);
+
         mtitle = getTitle();
         fragmenttitles = getResources().getStringArray(R.array.fragmenttitles);
         // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        setTitle("Home");
         textview = (TextView) findViewById(R.id.cusupport);
         // Find our drawer view
         mdrawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -73,7 +70,6 @@ public class HomeActivity extends AppCompatActivity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-
         getSupportFragmentManager().addOnBackStackChangedListener(new android.support.v4.app.FragmentManager.OnBackStackChangedListener() {
             @Override
             public void onBackStackChanged() {
@@ -88,7 +84,9 @@ public class HomeActivity extends AppCompatActivity {
             }
 
         });
+
     }
+
 
     public void setTitle(CharSequence title) {
 
@@ -209,9 +207,8 @@ public class HomeActivity extends AppCompatActivity {
         mdrawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (mdrawerlayout != null && mdrawerlayout.isDrawerOpen(GravityCompat.START)) {
             mdrawerlayout.closeDrawer(GravityCompat.START);
-        } else if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            getSupportFragmentManager().popBackStack();
         } else {
+            setTitle("Home");
             super.onBackPressed();
         }
     }
@@ -327,14 +324,17 @@ public class HomeActivity extends AppCompatActivity {
 
     public void home(View v) {
         // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        getSupportFragmentManager().popBackStack();
+        setTitle("Home");
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.HomeActivity");
+        intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
         mdrawerlayout.closeDrawer(GravityCompat.START);
     }
 
     public void donation(View v) {
         setTitle(fragmenttitles[7]);
+        getSupportFragmentManager().popBackStack();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.nav_home, new DonationFragment())
                 .addToBackStack("Donation")
@@ -344,6 +344,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void store(View v) {
         setTitle(fragmenttitles[8]);
+        getSupportFragmentManager().popBackStack();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.nav_home, new StoreFragment())
                 .addToBackStack("Store")
@@ -353,6 +354,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void contactus(View v) {
         setTitle(fragmenttitles[9]);
+        getSupportFragmentManager().popBackStack();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.nav_home, new ContactusFragment())
                 .addToBackStack("Contact us")
@@ -361,7 +363,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void login(View v) {
-        intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.LoginActivity");
+        getSupportFragmentManager().popBackStack();
+        intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         mdrawerlayout.closeDrawer(GravityCompat.START);
     }
@@ -388,7 +391,7 @@ public class HomeActivity extends AppCompatActivity {
             }
             return true;
         } else if (id == R.id.visit_foehn) {
-            intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.WebviewActivity");
+            intent = new Intent(this, WebviewActivity.class);
             startActivity(intent);
         } else if (id == R.id.aboutus) {
             aboutusprocess(view1);
@@ -411,7 +414,6 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
-        setTitle(mtitle);
         return true;
     }
 
@@ -422,6 +424,17 @@ public class HomeActivity extends AppCompatActivity {
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
+    @Override
+    protected void onResume() {
+        setTitle("Home");
+        super.onResume();
+    }
+
+    @Override
+    protected void onRestart() {
+        setTitle("Home");
+        super.onRestart();
+    }
 
     @Override
     public void onStart() {
