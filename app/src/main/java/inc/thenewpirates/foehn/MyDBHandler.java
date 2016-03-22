@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Toast;
 
 public class MyDBHandler extends AppCompatActivity {
@@ -77,46 +79,54 @@ public class MyDBHandler extends AppCompatActivity {
 
     public int addProduct(Product p) {
 
-
         if (p.get_fname().equals("")) {
-            Toast.makeText(context, "First name is not there", Toast.LENGTH_LONG).show();
+            //Toast.makeText(context, "First name is not there", Toast.LENGTH_LONG).show();
+            no = 21;
         }
         else if (p.get_fname().length()<2) {
-            Toast.makeText(context, "Enter valid Firsr Name", Toast.LENGTH_LONG).show();
+            //Toast.makeText(context, "Enter valid Firsr Name", Toast.LENGTH_LONG).show();
+            no = 22;
         }
-        /*else if (p.get_lname().equals("")) {
-            Toast.makeText(context, "Last name is not there", Toast.LENGTH_LONG).show();
-        }
-        else if (p.get_lname().length()<2) {
-            Toast.makeText(context, "Enter valid Last Name", Toast.LENGTH_LONG).show();
-        }*/
         else if (p.get_mobile().equals("")) {
-            Toast.makeText(context, "Mobile no is not there", Toast.LENGTH_LONG).show();
+            //Toast.makeText(context, "Mobile no is not there", Toast.LENGTH_LONG).show();
+            no = 23;
         }
-        else if (p.get_mobile().length()<10 && p.get_mobile().length()>12) {
-            Toast.makeText(context, "Invalid Mobile number", Toast.LENGTH_LONG).show();
+        else if (p.get_mobile().length()<10) {
+            //Toast.makeText(context, "Invalid Mobile number", Toast.LENGTH_LONG).show();
+            no = 231;
+        }
+        else if ( p.get_mobile().length()>12) {
+            //Toast.makeText(context, "Invalid Mobile number", Toast.LENGTH_LONG).show();
+            no = 232;
         }
         else if (p.get_dob().equals("")) {
-            Toast.makeText(context, "Date is not there", Toast.LENGTH_LONG).show();
+            //Toast.makeText(context, "Date is not there", Toast.LENGTH_LONG).show();
+            no = 24;
         }
-        else if (p.get_dob().length()<8 && p.get_dob().length()>10) {
-            Toast.makeText(context, "Enter valid date", Toast.LENGTH_LONG).show();
+        else if (p.get_dob().length()<8 ) {
+            //Toast.makeText(context, "Enter valid date", Toast.LENGTH_LONG).show();
+            no = 241;
+        }
+        else if ( p.get_dob().length()>10) {
+            //Toast.makeText(context, "Enter valid date", Toast.LENGTH_LONG).show();
+            no = 242;
         }
         else if (p.get_email().equals("")) {
-            Toast.makeText(context, "Email is not there", Toast.LENGTH_LONG).show();
-        }
-        else if (p.get_email().length()<5) {
-            Toast.makeText(context, "Please enter valid email", Toast.LENGTH_LONG).show();
+            //Toast.makeText(context, "Email is not there", Toast.LENGTH_LONG).show();
+            no = 25;
         }
         else if (p.get_pass().equals("")) {
-            Toast.makeText(context, "Password is not there", Toast.LENGTH_LONG).show();
+            //Toast.makeText(context, "Password is not there", Toast.LENGTH_LONG).show();
+            no = 26;
         }
 
         else if (p.get_cpass().equals("")) {
-            Toast.makeText(context, "Confirm Password is not there", Toast.LENGTH_LONG).show();
+           // Toast.makeText(context, "Confirm Password is not there", Toast.LENGTH_LONG).show();
+            no = 27;
         }
         else if(!p.get_pass().equals(p.get_cpass())){
-            Toast.makeText(context, "Password and Confirm Password are not same", Toast.LENGTH_LONG).show();
+            //Toast.makeText(context, "Password and Confirm Password are not same", Toast.LENGTH_LONG).show();
+            no = 267;
         }
         else {
 
@@ -137,7 +147,6 @@ public class MyDBHandler extends AppCompatActivity {
                 long rowId = sqLiteDatabase.insert(TABLE_NAME, null, values);
                 if (rowId != -1) {
                     Toast.makeText(context, " Welcome To F.O.E.H.N : )", Toast.LENGTH_LONG).show();
-
                     no = 0;
                 }
             }
@@ -181,77 +190,58 @@ public class MyDBHandler extends AppCompatActivity {
     }
 
     public String checkRecord(Product p){
-        String dbString = "";
-        String dbString1 = "";
+
         String test = "";
-        String test1 = "yeah";
-        String prob = "try";
-        String test2 = "";
 
         if(p.get_email().equals("")){
-            Toast.makeText(context, " Please enter E-mail ", Toast.LENGTH_LONG).show();
 
-        }
-        if(p.get_pass().equals("")){
-            Toast.makeText(context, " Please enter Password ", Toast.LENGTH_LONG).show();
-
-        }
-
-        Cursor cursor = sqLiteDatabase.query(TABLE_NAME, null, null,
-                null, null, null, null);
-
-        if (cursor != null && cursor.moveToFirst()) {
-            do
-            {
-                String productname1 = p.get_email();
-                String password1 = p.get_pass();
-                String productname = cursor.getString(cursor.getColumnIndex("email"));
-                //dbString1 += cursor.getString(cursor.getColumnIndex("password"));
-                String password = cursor.getString(cursor.getColumnIndex("pass"));
-
-
-                if(p.get_email().equals("")){
-                    Toast.makeText(context, " Please enter E-mail ", Toast.LENGTH_LONG).show();
-
-                }
-                else if(p.get_pass().equals("")){
-                    Toast.makeText(context, " Please enter Password ", Toast.LENGTH_LONG).show();
-
-                }
-                else if(!productname.equals(productname1) && !password.equals(password1)){
-                    Toast.makeText(context, " WRONG CREDENTIALS ", Toast.LENGTH_LONG).show();
-                    test = "try";
-
-                }
-                else if(!productname.equals(productname1) && password.equals(password1)){
-                    Toast.makeText(context, " WRONG EMAIL ", Toast.LENGTH_LONG).show();
-                    test = "try";
-                }
-                else if(productname.equals(productname1) && !password.equals(password1)){
-                    Toast.makeText(context, " WRONG PASSWORD ", Toast.LENGTH_LONG).show();
-                    test = "try";
-                }
-                else if(productname.equals(productname1) && password.equals(password1)){
-                    Toast.makeText(context, " Welcome to F.O.E.H.N : )", Toast.LENGTH_LONG).show();
-                    test = "yeah";
-                    break;
-                }
-                else{
-                    Toast.makeText(context, " TRY AGAIN ", Toast.LENGTH_LONG).show();
-
-                }
-
-            }while(cursor.moveToNext());
-            cursor.close();
-            if(test.equals(prob)){
-                Toast.makeText(context, " TRY AGAIN ", Toast.LENGTH_LONG).show();
+            if(p.get_pass().equals("")){
+                test = "abc";
             }
-            if(test.equals(test2)){
-                Toast.makeText(context, " PLEASE REGISTER ", Toast.LENGTH_LONG).show();
+            else{
+                test = "empty";
+            }
+
+        }
+        else{
+            Cursor cursor = sqLiteDatabase.query(TABLE_NAME, null, null,
+                    null, null, null, null);
+
+            if (cursor != null && cursor.moveToFirst()) {
+                do
+                {
+                    String productname1 = p.get_email();
+                    String password1 = p.get_pass();
+                    String productname = cursor.getString(cursor.getColumnIndex("email"));
+                    String password = cursor.getString(cursor.getColumnIndex("pass"));
+
+                     if(!productname.equals(productname1) && !password.equals(password1)){
+                        test = "wc";
+
+                    }
+                    else if(!productname.equals(productname1) && password.equals(password1)){
+                        test = "we";
+                    }
+                    else if(productname.equals(productname1) && !password.equals(password1)){
+                        test = "wp";
+                    }
+                    else if(productname.equals(productname1) && password.equals(password1)){
+                        Toast.makeText(context, " Welcome to F.O.E.H.N : )", Toast.LENGTH_LONG).show();
+                        test = "yeah";
+                        break;
+                    }
+                    else{
+                        Toast.makeText(context, " TRY AGAIN ", Toast.LENGTH_LONG).show();
+
+                    }
+
+                }while(cursor.moveToNext());
+                cursor.close();
             }
         }
         return test;
     }
+
 
     private class EmployeeHelper extends SQLiteOpenHelper {
 
