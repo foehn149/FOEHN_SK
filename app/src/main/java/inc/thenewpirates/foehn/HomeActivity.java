@@ -5,7 +5,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.view.GravityCompat;
@@ -30,7 +30,6 @@ public class HomeActivity extends AppCompatActivity {
     ActionBarDrawerToggle drawerToggle;
     Intent intent = new Intent();
     TextView textview;
-    View view1;
     CharSequence mtitle;
     String[] fragmenttitles;
     private GoogleApiClient client;
@@ -59,14 +58,14 @@ public class HomeActivity extends AppCompatActivity {
                 R.string.navigation_drawer_close) {
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-                setTitle(mtitle);
             }
 
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                setTitle(mtitle);
             }
         };
+        mdrawerlayout.addDrawerListener(drawerToggle);
+        drawerToggle.syncState();
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -87,7 +86,6 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-
     public void setTitle(CharSequence title) {
 
         mtitle = title;
@@ -100,9 +98,8 @@ public class HomeActivity extends AppCompatActivity {
 
     public void paymentmethod(View view) {
         setTitle(fragmenttitles[10]);
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction
-                .replace(R.id.nav_home, new PaymentMethodFragment())
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.nav_home, new PaymentMethodFragment())
                 .addToBackStack("Payment Method")
                 .commit();
         mdrawerlayout.closeDrawer(GravityCompat.START);
@@ -110,9 +107,8 @@ public class HomeActivity extends AppCompatActivity {
 
     public void cardpaymentprocess(View view) {
         setTitle(fragmenttitles[11]);
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction
-                .replace(R.id.nav_home, new CardPaymentFragment())
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.nav_home, new CardPaymentFragment())
                 .addToBackStack("Card Payment")
                 .commit();
         mdrawerlayout.closeDrawer(GravityCompat.START);
@@ -120,9 +116,8 @@ public class HomeActivity extends AppCompatActivity {
 
     public void netbankingprocess(View view) {
         setTitle(fragmenttitles[12]);
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction
-                .replace(R.id.nav_home, new NetBankingFragment())
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.nav_home, new NetBankingFragment())
                 .addToBackStack("Net Banking")
                 .commit();
         mdrawerlayout.closeDrawer(GravityCompat.START);
@@ -130,27 +125,24 @@ public class HomeActivity extends AppCompatActivity {
 
     public void netbanking(View view) {
         int id = view.getId();
+        mdrawerlayout.closeDrawer(GravityCompat.START);
         if (id == R.id.hdfcbank) {
-            mdrawerlayout.closeDrawer(GravityCompat.START);
             Uri uriUrl = Uri.parse("http://www.hdfcbank.com/");
             intent = new Intent(Intent.ACTION_VIEW, uriUrl);
             intent = Intent.createChooser(intent, "HDFC Bank");
             startActivity(intent);
 
         } else if (id == R.id.icicibank) {
-            mdrawerlayout.closeDrawer(GravityCompat.START);
             Uri uriUrl = Uri.parse("http://www.icicibank.com/");
             intent = new Intent(Intent.ACTION_VIEW, uriUrl);
             intent = Intent.createChooser(intent, "ICICI Bank");
             startActivity(intent);
         } else if (id == R.id.citibank) {
-            mdrawerlayout.closeDrawer(GravityCompat.START);
             Uri uriUrl = Uri.parse("https://www.online.citibank.co.in/");
             intent = new Intent(Intent.ACTION_VIEW, uriUrl);
             intent = Intent.createChooser(intent, "Citi Bank");
             startActivity(intent);
         } else if (id == R.id.sbibank) {
-            mdrawerlayout.closeDrawer(GravityCompat.START);
             Uri uriUrl = Uri.parse("https://www.sbi.co.in/");
             intent = new Intent(Intent.ACTION_VIEW, uriUrl);
             intent = Intent.createChooser(intent, "SBI Bank");
@@ -162,7 +154,6 @@ public class HomeActivity extends AppCompatActivity {
             intent = Intent.createChooser(intent, "AXIS Bank");
             startActivity(intent);
         } else if (id == R.id.kotakbank) {
-            mdrawerlayout.closeDrawer(GravityCompat.START);
             Uri uriUrl = Uri.parse("http://www.kotak.com/");
             intent = new Intent(Intent.ACTION_VIEW, uriUrl);
             intent = Intent.createChooser(intent, "Kotak Bank");
@@ -173,8 +164,8 @@ public class HomeActivity extends AppCompatActivity {
 
     public void calltopaypal(View view) {
         int id = view.getId();
+        mdrawerlayout.closeDrawer(GravityCompat.START);
         if (id == R.id.paypal) {
-            mdrawerlayout.closeDrawer(GravityCompat.START);
             Uri uriUrl = Uri.parse("https://www.paypal.com/signin/?country.x=IN&locale.x=en_IN");
             intent = new Intent(Intent.ACTION_VIEW, uriUrl);
             intent = Intent.createChooser(intent, "Paypal");
@@ -187,8 +178,8 @@ public class HomeActivity extends AppCompatActivity {
     public void supportprocess(View view) {
 
         int id = view.getId();
+        mdrawerlayout.closeDrawer(GravityCompat.START);
         if (id == R.id.cusupport) {
-            mdrawerlayout.closeDrawer(GravityCompat.START);
             intent = new Intent(Intent.ACTION_SEND);
             intent.setData(Uri.parse("mailto:"));
             String[] to = {"support@foehn.comli.com"};
@@ -199,6 +190,102 @@ public class HomeActivity extends AppCompatActivity {
 
         }
 
+    }
+
+    public void donateprocess(View view) {
+        mdrawerlayout.closeDrawer(GravityCompat.START);
+        int id = view.getId();
+        if (id == R.id.food) {
+            setTitle(fragmenttitles[0]);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.nav_home, new FoodDonateFragment())
+                    .addToBackStack("Food")
+                    .commit();
+
+        } else if (id == R.id.orphan) {
+            setTitle(fragmenttitles[1]);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.nav_home, new OrphanDonateFragment())
+                    .addToBackStack("Orphan")
+                    .commit();
+        } else if (id == R.id.education) {
+            setTitle(fragmenttitles[2]);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.nav_home, new EducationDonateFragment())
+                    .addToBackStack("Education")
+                    .commit();
+        } else if (id == R.id.health) {
+            setTitle(fragmenttitles[3]);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.nav_home, new HealthDonateFragment())
+                    .addToBackStack("Health")
+                    .commit();
+        } else if (id == R.id.naturalcalamities) {
+            setTitle(fragmenttitles[4]);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.nav_home, new NaturalCalamitiesDonateFragment())
+                    .addToBackStack("Natural Calamities")
+                    .commit();
+        }
+    }
+
+    public void feedbackprocess(View view) {
+
+        setTitle(fragmenttitles[6]);
+        int id = view.getId();
+        mdrawerlayout.closeDrawer(GravityCompat.START);
+        if (id == R.id.cuimagebutton) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.nav_home, new FeedbackFragment())
+                    .addToBackStack("Feedback")
+                    .commit();
+        }
+    }
+
+    public void setNavigationDrawer() {
+        mdrawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navView = (NavigationView) findViewById(R.id.nav_view);
+        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                int id = menuItem.getItemId();
+                getSupportFragmentManager().popBackStack();
+                mdrawerlayout.closeDrawer(GravityCompat.START);
+                if (id == R.id.nav_home) {
+                    setTitle("Home");
+                    // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.HomeActivity");
+                    startActivity(intent);
+                    return true;
+                } else if (id == R.id.nav_donation) {
+                    setTitle(fragmenttitles[7]);
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.nav_home, new DonationFragment())
+                            .addToBackStack("Donation")
+                            .commit();
+                    return true;
+                } else if (id == R.id.nav_store) {
+                    setTitle(fragmenttitles[8]);
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.nav_home, new StoreFragment())
+                            .addToBackStack("Store")
+                            .commit();
+                    return true;
+                } else if (id == R.id.nav_contactus) {
+                    setTitle(fragmenttitles[9]);
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.nav_home, new ContactusFragment())
+                            .addToBackStack("Contact us")
+                            .commit();
+                    return true;
+                } else if (id == R.id.nav_login) {
+                    intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.LoginActivity");
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -213,164 +300,8 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    public void foodprocess(View v) {
-        setTitle(fragmenttitles[0]);
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction
-                .replace(R.id.nav_home, new FoodDonateFragment())
-                .addToBackStack("Food")
-                .commit();
-        mdrawerlayout.closeDrawer(GravityCompat.START);
-
-    }
-
-    public void orphanprocess(View v) {
-        setTitle(fragmenttitles[1]);
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction
-                .replace(R.id.nav_home, new OrphanDonateFragment())
-                .addToBackStack("Orphan")
-                .commit();
-        mdrawerlayout.closeDrawer(GravityCompat.START);
-
-    }
-
-    public void educationprocess(View v) {
-        setTitle(fragmenttitles[2]);
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction
-                .replace(R.id.nav_home, new EducationDonateFragment())
-                .addToBackStack("Education")
-                .commit();
-        mdrawerlayout.closeDrawer(GravityCompat.START);
-
-    }
-
-    public void healthprocess(View v) {
-        setTitle(fragmenttitles[3]);
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction
-                .replace(R.id.nav_home, new HealthDonateFragment())
-                .addToBackStack("Health")
-                .commit();
-        mdrawerlayout.closeDrawer(GravityCompat.START);
-
-    }
-
-    public void naturalcalamitiesprocess(View v) {
-        setTitle(fragmenttitles[4]);
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction
-                .replace(R.id.nav_home, new NaturalCalamitiesDonateFragment())
-                .addToBackStack("Natural Calamities")
-                .commit();
-        mdrawerlayout.closeDrawer(GravityCompat.START);
-
-    }
-
-    public void aboutusprocess(View v1) {
-
-        setTitle(fragmenttitles[5]);
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction
-                .replace(R.id.nav_home, new AboutusFragment())
-                .addToBackStack("About us")
-                .commit();
-        mdrawerlayout.closeDrawer(GravityCompat.START);
-
-    }
-
-    public void feedbackprocess(View view) {
-
-        setTitle(fragmenttitles[6]);
-        int id = view.getId();
-        if (id == R.id.cuimagebutton) {
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.nav_home, new FeedbackFragment())
-                    .addToBackStack("Feedback")
-                    .commit();
-            mdrawerlayout.closeDrawer(GravityCompat.START);
-        }
-    }
-
-
-    public void setNavigationDrawer() throws NullPointerException {
-        mdrawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navView = (NavigationView) findViewById(R.id.nav_view);
-        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                int id = menuItem.getItemId();
-                if (id == R.id.nav_home) {
-                    home(view1);
-                    return true;
-                } else if (id == R.id.nav_donation) {
-                    donation(view1);
-                    return true;
-                } else if (id == R.id.nav_store) {
-                    store(view1);
-                    return true;
-                } else if (id == R.id.nav_contactus) {
-                    contactus(view1);
-                    return true;
-                } else if (id == R.id.nav_login) {
-                    login(view1);
-                    return true;
-                }
-                return false;
-            }
-        });
-    }
-
-    public void home(View v) {
-        // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        getSupportFragmentManager().popBackStack();
-        setTitle("Home");
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent = new Intent(this, HomeActivity.class);
-        startActivity(intent);
-        mdrawerlayout.closeDrawer(GravityCompat.START);
-    }
-
-    public void donation(View v) {
-        setTitle(fragmenttitles[7]);
-        getSupportFragmentManager().popBackStack();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_home, new DonationFragment())
-                .addToBackStack("Donation")
-                .commit();
-        mdrawerlayout.closeDrawer(GravityCompat.START);
-    }
-
-    public void store(View v) {
-        setTitle(fragmenttitles[8]);
-        getSupportFragmentManager().popBackStack();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_home, new StoreFragment())
-                .addToBackStack("Store")
-                .commit();
-        mdrawerlayout.closeDrawer(GravityCompat.START);
-    }
-
-    public void contactus(View v) {
-        setTitle(fragmenttitles[9]);
-        getSupportFragmentManager().popBackStack();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_home, new ContactusFragment())
-                .addToBackStack("Contact us")
-                .commit();
-        mdrawerlayout.closeDrawer(GravityCompat.START);
-    }
-
-    public void login(View v) {
-        getSupportFragmentManager().popBackStack();
-        intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        mdrawerlayout.closeDrawer(GravityCompat.START);
-    }
-
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) throws NullPointerException {
+    public boolean onOptionsItemSelected(MenuItem item) {
         // The action bar home/up action should open or close the drawer.
 
         int id = item.getItemId();
@@ -394,7 +325,13 @@ public class HomeActivity extends AppCompatActivity {
             intent = new Intent(this, WebviewActivity.class);
             startActivity(intent);
         } else if (id == R.id.aboutus) {
-            aboutusprocess(view1);
+
+            mdrawerlayout.closeDrawer(GravityCompat.START);
+            setTitle(fragmenttitles[5]);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.nav_home, new AboutusFragment())
+                    .addToBackStack("About us")
+                    .commit();
         }
 
         return super.onOptionsItemSelected(item);

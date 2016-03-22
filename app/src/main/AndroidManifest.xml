@@ -11,26 +11,26 @@
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/appicon"
         android:label="@string/app_name"
-        android:hardwareAccelerated="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".HomeActivity"
-            android:label="@string/app_name"
-            android:launchMode="singleTask"
+            android:name=".SplashActivity"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".HomeActivity">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="inc.thenewpirates.foehn.HomeActivity" />
         </activity>
+        <activity
+            android:name=".HomeActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar" />
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -41,30 +41,29 @@
 
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
+            android:label="@string/title_activity_login"
             android:parentActivityName=".HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="inc.thenewpirates.foehn.HomeActivity" />
         </activity>
-
         <activity
             android:name=".WebviewActivity"
-            android:label="@string/title_activity_webview"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
+            android:label="@string/title_activity_webview"
             android:parentActivityName=".HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="inc.thenewpirates.foehn.HomeActivity" />
         </activity>
-
-        <activity android:name=".SignupActivity"
-            android:label="@string/title_activity_signup"
+        <activity
+            android:name=".SignupActivity"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
+            android:label="@string/title_activity_signup"
             android:parentActivityName=".LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

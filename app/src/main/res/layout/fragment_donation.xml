@@ -24,18 +24,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
+                android:clickable="true"
                 android:gravity="center"
+                android:onClick="donateprocess"
                 android:text="@string/food"
                 android:textSize="@dimen/textsizebig"
-                android:textStyle="bold"
-                android:onClick="foodprocess"
-                android:clickable="true"/>
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageViewFood"
-                android:contentDescription="@string/food"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/food"
                 android:src="@drawable/f" />
 
             <TextView
@@ -43,18 +43,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
+                android:clickable="true"
                 android:gravity="center"
+                android:onClick="donateprocess"
                 android:text="@string/orphan"
                 android:textSize="@dimen/textsizebig"
-                android:textStyle="bold"
-                android:onClick="orphanprocess"
-                android:clickable="true"/>
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageVieworphan"
-                android:contentDescription="@string/orphan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/orphan"
                 android:src="@drawable/o" />
 
             <TextView
@@ -62,18 +62,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
+                android:clickable="true"
                 android:gravity="center"
+                android:onClick="donateprocess"
                 android:text="@string/education"
                 android:textSize="@dimen/textsizebig"
-                android:textStyle="bold"
-                android:onClick="educationprocess"
-                android:clickable="true"/>
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageVieweducation"
-                android:contentDescription="@string/education"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/education"
                 android:src="@drawable/e"/>
 
             <TextView
@@ -81,18 +81,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
+                android:clickable="true"
                 android:gravity="center"
+                android:onClick="donateprocess"
                 android:text="@string/health"
                 android:textSize="@dimen/textsizebig"
-                android:textStyle="bold"
-                android:onClick="healthprocess"
-                android:clickable="true"/>
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageViewhealth"
-                android:contentDescription="@string/health"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/health"
                 android:src="@drawable/h"/>
 
             <TextView
@@ -100,18 +100,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
+                android:clickable="true"
                 android:gravity="center"
+                android:onClick="donateprocess"
                 android:text="@string/naturalcalamities"
                 android:textSize="@dimen/textsizebig"
-                android:textStyle="bold"
-                android:onClick="naturalcalamitiesprocess"
-                android:clickable="true"/>
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageViewnaturalcalamities"
-                android:contentDescription="@string/naturalcalamities"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/naturalcalamities"
                 android:src="@drawable/nc"/>
 
         </LinearLayout>
