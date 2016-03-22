@@ -63,14 +63,17 @@ public class MyDBHandler extends AppCompatActivity {
     private SQLiteDatabase sqLiteDatabase;
     private Context context;
 
+
     public MyDBHandler(Context context) {
         this.context = context;
         employeeHelper = new EmployeeHelper(context);
     }
 
+
     public void open() {
         sqLiteDatabase = employeeHelper.getWritableDatabase();
     }
+
 
     public void close() {
         sqLiteDatabase.close();
@@ -80,52 +83,40 @@ public class MyDBHandler extends AppCompatActivity {
     public int addProduct(Product p) {
 
         if (p.get_fname().equals("")) {
-            //Toast.makeText(context, "First name is not there", Toast.LENGTH_LONG).show();
             no = 21;
         }
         else if (p.get_fname().length()<2) {
-            //Toast.makeText(context, "Enter valid Firsr Name", Toast.LENGTH_LONG).show();
             no = 22;
         }
         else if (p.get_mobile().equals("")) {
-            //Toast.makeText(context, "Mobile no is not there", Toast.LENGTH_LONG).show();
             no = 23;
         }
         else if (p.get_mobile().length()<10) {
-            //Toast.makeText(context, "Invalid Mobile number", Toast.LENGTH_LONG).show();
             no = 231;
         }
         else if ( p.get_mobile().length()>12) {
-            //Toast.makeText(context, "Invalid Mobile number", Toast.LENGTH_LONG).show();
             no = 232;
         }
         else if (p.get_dob().equals("")) {
-            //Toast.makeText(context, "Date is not there", Toast.LENGTH_LONG).show();
             no = 24;
         }
         else if (p.get_dob().length()<8 ) {
-            //Toast.makeText(context, "Enter valid date", Toast.LENGTH_LONG).show();
             no = 241;
         }
         else if ( p.get_dob().length()>10) {
-            //Toast.makeText(context, "Enter valid date", Toast.LENGTH_LONG).show();
             no = 242;
         }
         else if (p.get_email().equals("")) {
-            //Toast.makeText(context, "Email is not there", Toast.LENGTH_LONG).show();
-            no = 25;
+             no = 25;
         }
         else if (p.get_pass().equals("")) {
-            //Toast.makeText(context, "Password is not there", Toast.LENGTH_LONG).show();
             no = 26;
         }
 
         else if (p.get_cpass().equals("")) {
-           // Toast.makeText(context, "Confirm Password is not there", Toast.LENGTH_LONG).show();
             no = 27;
         }
         else if(!p.get_pass().equals(p.get_cpass())){
-            //Toast.makeText(context, "Password and Confirm Password are not same", Toast.LENGTH_LONG).show();
             no = 267;
         }
         else {
@@ -158,6 +149,7 @@ public class MyDBHandler extends AppCompatActivity {
         return no;
     }
 
+
     public boolean checkEmail(String e){
 
         int n = 1;
@@ -181,13 +173,9 @@ public class MyDBHandler extends AppCompatActivity {
             }while(cursor.moveToNext());
             cursor.close();
         }
-
-
-            //s1.switchToLogin();
-
-
         return b;
     }
+
 
     public String checkRecord(Product p){
 

@@ -53,20 +53,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void checkButtonClicked(View view ){
-              /*String productname = emailInput.getText().toString();
-        String password = passInput.getText().toString();*/
-        String email = emailInput.getText().toString();
-        String pass = passInput.getText().toString();
 
+            String email = emailInput.getText().toString();
+            String pass = passInput.getText().toString();
 
-
-
-        p = new Product(email.toLowerCase(),pass);
-        String abc = dbHandler.checkRecord(p);
-        String abc1 = "yeah";
-        String abc2 = "abc";
-
-
+            p = new Product(email.toLowerCase(),pass);
+            String abc = dbHandler.checkRecord(p);
+            String abc1 = "yeah";
+            String abc2 = "abc";
 
             if (abc.equals(abc2)) {
                 Snackbar.make(view, "Please enter Email and Password .", Snackbar.LENGTH_LONG)
@@ -96,7 +90,6 @@ public class LoginActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
                 passInput.setText("");
             } else if (abc.equals(abc1)) {
-                //myOutput.setText(abc);
                 i = new Intent(LoginActivity.this, Mypage.class);
                 startActivity(i);
             }
@@ -105,10 +98,6 @@ public class LoginActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
                 emailInput.setText("");
             }
-
-
-
-
     }
 
 
@@ -120,14 +109,15 @@ public class LoginActivity extends AppCompatActivity {
         return matcher.matches();
     }
 
+
     private boolean isPasswordValid(String password) {
         boolean a = false ;
         String as = "";
         if(!password.equals(as))
             a=true;
-
         return a;
     }
+
 
     @Override
     protected void onDestroy() {

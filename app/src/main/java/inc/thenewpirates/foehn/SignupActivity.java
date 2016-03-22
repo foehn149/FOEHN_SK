@@ -126,11 +126,6 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
-    public void switchToLogin() {
-        /*intent = new Intent(SignupActivity.this, LoginActivity.class);
-        startActivity(intent);*/
-        Toast.makeText(context, " Please Login ", Toast.LENGTH_LONG).show();
-    }
 
     private boolean isEmailValid(String email) {
         String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
@@ -139,6 +134,7 @@ public class SignupActivity extends AppCompatActivity {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
+
 
     @Override
     protected void onDestroy() {
