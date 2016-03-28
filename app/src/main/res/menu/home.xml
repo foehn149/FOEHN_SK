@@ -2,17 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-    <item
-        android:id="@+id/visit_foehn"
-        android:orderInCategory="100"
-        android:title="@string/visit_foehn"
-        android:icon="@drawable/visitfoehn"
-        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/aboutus"
-        android:orderInCategory="110"
+        android:icon="@drawable/aboutus"
+        android:orderInCategory="100"
         android:title="@string/aboutus"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 
 </menu>

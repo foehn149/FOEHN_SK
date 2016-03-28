@@ -1,14 +1,17 @@
-<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/aboutus"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:weightSum="1"
-    tools:context="inc.thenewpirates.foehn.AboutusFragment">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="inc.thenewpirates.foehn.AboutusActivity"
+    tools:showIn="@layout/activity_aboutus">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:paddingBottom="@dimen/activity_vertical_margin"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
@@ -44,4 +47,4 @@
                 android:text="@string/aboutusdetail" />
         </LinearLayout>
     </ScrollView>
-</android.support.v7.widget.LinearLayoutCompat>
+</FrameLayout>

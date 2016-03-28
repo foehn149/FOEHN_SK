@@ -5,6 +5,6 @@
     <item name="Contactus" type="drawable">@drawable/phone</item>
     <item name="Login" type="drawable">@drawable/login</item>
     <item name="Feedback" type="drawable">@drawable/feedback</item>
-    <item name="visitfoehn" type="drawable">@drawable/visitfoehn</item>
+    <item name="aboutus" type="drawable">@drawable/aboutus</item>
     <item name="fab" type="drawable">@drawable/donatefab</item>
 </resources>

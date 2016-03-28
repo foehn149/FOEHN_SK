@@ -24,11 +24,11 @@ public class SplashActivity extends AppCompatActivity {
         AnimationSet animation = new AnimationSet(true);
         animation.addAnimation(new AlphaAnimation(0.0F, 1.0F));
         animation.addAnimation(new ScaleAnimation(0.0f, 1, 0.0f, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)); // Change args as desired
-        animation.setDuration(1500);
+        animation.setDuration(2000);
 
         imgSplash.startAnimation(animation);
 
-        new CountDownTimer(5000, 1000) {
+        new CountDownTimer(2000, 1000) {
 
             public void onTick(long millisUntilFinished) {
 

@@ -66,8 +66,8 @@
                 android:id="@+id/continueprocedure"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/continueprocedure"
-                android:enabled="true" />
+                android:enabled="true"
+                android:text="@string/continueprocedure" />
 
         </LinearLayout>
     </ScrollView>

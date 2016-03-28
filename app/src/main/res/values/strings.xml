@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">FOEHN</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="app_fullname">FOEHN - A Global Charity Trust</string>
     <string name="app_logo">App Logo</string>
 
@@ -10,9 +9,14 @@
 
     <!-- Strings related to actionbar title -->
     <string name="visit_foehn">Visit Foehn</string>
+    <string name="title_activity_home">Home</string>
     <string name="title_activity_login">Log in</string>
-    <string name="title_activity_webview">FOEHN Website</string>
     <string name="title_activity_signup">Sign up</string>
+    <string name="title_activity_webview">FOEHN Website</string>
+    <string name="title_activity_donation">Donation</string>
+    <string name="title_activity_store">Store</string>
+    <string name="title_activity_contactus">Contact us</string>
+    <string name="title_activity_aboutus">About us</string>
 
     <!-- Strings related to login -->
     <string name="email">Email</string>
@@ -48,58 +52,58 @@
     <!-- Strings related to aboutus -->
     <string name="aboutus">About us</string>
     <string name="aboutusdetail">
-        It is an android donation application where different sectors of needy people are given funds for development and betterment of their welfare. <br />
-        We fund some of areas Viz. Food sector, Orphans associations, Education centers, Health centers and areas affected by Natural calamities.<br />
-        People around the world can just login and donate for needy people. We have secured protection for our donors as their donations will rely to the people securely. <br />
-        Donors will be informed the info about recent involvements and related notifications respectively.<br />
-        We have a store, where people can buy products to promote the charity funding as promoting will boost the donations results in betterments of locality of situations.<br />
-        We have clothing, accessories for promoting the charity what people can buy the best quality what they could go for.<br />
-        A secure database systems installed in place for a proper management of various data credential sectors of organization as well as Customers management.<br />
+        "It is an android donation application where different sectors of needy people are given funds for development and betterment of their welfare."
+        "We fund some of areas Viz. Food sector, Orphans associations, Education centers, Health centers and areas affected by Natural calamities."
+        "People around the world can just login and donate for needy people. We have secured protection for our donors as their donations will rely to the people securely."
+        "Donors will be informed the info about recent involvements and related notifications respectively."
+        "We have a store, where people can buy products to promote the charity funding as promoting will boost the donations results in betterments of locality of situations."
+        "We have clothing, accessories for promoting the charity what people can buy the best quality what they could go for."
+        "A secure database systems installed in place for a proper management of various data credential sectors of organization as well as Customers management."
     </string>
 
     <!-- Strings related to fooddonate -->
 
     <string name="fooddonate">
-        Our food program is to initiate the help towards people who are struggling to get the food.<br />
-        We are here to provide them with the funds that has been donated.<br />
-        There are various regions on earth where people are unable to get the basic need of food and their backward community cannot even do something about it. <br />
-        What the food providing organizations demand for is money. We are providing the money through our donations. Please help people in need .<br />
+        "Our food program is to initiate the help towards people who are struggling to get the food."
+        "We are here to provide them with the funds that has been donated."
+        "There are various regions on earth where people are unable to get the basic need of food and their backward community cannot even do something about it."
+        "What the food providing organizations demand for is money. We are providing the money through our donations. Please help people in need."
      </string>
 
     <!-- Strings related to orphandonate -->
     <string name="orphandonate">
-        Our orphans program is to initiate the help orphans and orphanages that manage to hold valuable life.<br />
-        We fund many organizations that looks over the orphanages and related issues.<br />
-        Orphans have a bright future if proper care is taken and nourishing.<br />
-        We are here to provide them with support and hope for betterment of their life in hands to grow up their lives happily.<br />
-        The total population of orphans is nourished properly and given proper education they are our future generation that can change the world.<br />
-        Please help theses growing cubs.<br />
+        "Our orphans program is to initiate the help orphans and orphanages that manage to hold valuable life."
+        "We fund many organizations that looks over the orphanages and related issues."
+        "Orphans have a bright future if proper care is taken and nourishing."
+        "We are here to provide them with support and hope for betterment of their life in hands to grow up their lives happily."
+        "The total population of orphans is nourished properly and given proper education they are our future generation that can change the world."
+        "Please help theses growing cubs."
 
     </string>
 
     <!-- Strings related to educationdonate -->
     <string name="educationdonate">
-        Our education program is to support the education academies and government schools and different primary and secondary level panchayat schools to educate children and let the children make their life prosperous. <br />
-        Many places people are backing off in education and livelihood as they are not provided with proper education system and the knowledge resources and material.<br />
-        We provide funds to some of government schools and panchayat schools to manage all these educations issues to eradicate. Let the child learn and lead and rule the world.<br />
-        Please support people these needy people.<br />
+        "Our education program is to support the education academies and government schools and different primary and secondary level panchayat schools to educate children and let the children make their life prosperous."
+        "Many places people are backing off in education and livelihood as they are not provided with proper education system and the knowledge resources and material."
+        "We provide funds to some of government schools and panchayat schools to manage all these educations issues to eradicate. Let the child learn and lead and rule the world."
+        "Please support people these needy people."
     </string>
 
     <!-- Strings related to healthdonate -->
     <string name="healthdonate">
-        Our health program is to initiate the help to people need for money for treatment in un-affordable hospitals.<br />
-        We fund to different government hospitals for free treatment of the patients. <br />
-        People in Remote locations of countries cannot reach the hospitals in urban area during emergency cases so we are funding different NGOs to even provide those remote locations a hospital in terms to save people in emergence. <br />
-        A healthy country is wealthy country.<br />
+        "Our health program is to initiate the help to people need for money for treatment in un-affordable hospitals."
+        "We fund to different government hospitals for free treatment of the patients."
+        "People in Remote locations of countries cannot reach the hospitals in urban area during emergency cases so we are funding different NGOs to even provide those remote locations a hospital in terms to save people in emergence."
+        "A healthy country is wealthy country."
     </string>
 
     <!-- Strings related to naturalcalamitiesdonate -->
     <string name="naturalcalamitiesdonate">
-        Our natural-calamity program is to initiate help and providing immediate relief and assists in the rehabilitation process of the affected communities in the aftermath of any calamity.<br />
-        We help communities build their capacity to better cope with and recover from disasters. Our foremost goal is to build resilience among the community and various stakeholders in case of any disaster.<br />
-        We work closely with communities, who have been affected by disasters, so that long term development of the communities with sustainable livelihood opportunities may be secured and they are better equipped in future.<br />
-        These are people who lost their home n surroundings waiting for hope to make and settle their life again back to normal. Government cannot handle entire budget to tackle act of natural calamities.<br />
-        Please help these sensitive and needy people in terms to give them a better future.<br />
+        "Our natural-calamity program is to initiate help and providing immediate relief and assists in the rehabilitation process of the affected communities in the aftermath of any calamity."
+        "We help communities build their capacity to better cope with and recover from disasters. Our foremost goal is to build resilience among the community and various stakeholders in case of any disaster."
+        "We work closely with communities, who have been affected by disasters, so that long term development of the communities with sustainable livelihood opportunities may be secured and they are better equipped in future."
+        "These are people who lost their home n surroundings waiting for hope to make and settle their life again back to normal. Government cannot handle entire budget to tackle act of natural calamities."
+        "Please help these sensitive and needy people in terms to give them a better future."
     </string>
 
     <!-- Srting related to feedback-->
@@ -137,21 +141,15 @@
     <string name="axisbank">AXIS Bank</string>
     <string name="kotakbank">Kotak Bank</string>
 
-    <!-- Srting related to fragment titles-->
+
+    <string name="action_settings">Settings</string>
+
+    <string name="donatename">Donate</string>
+
     <string-array name="fragmenttitles">
-        <item>Food</item>
-        <item>Orphan</item>
-        <item>Education</item>
-        <item>Health</item>
-        <item>Natural Calamities</item>
-        <item>About us</item>
         <item>Feedback</item>
-        <item>Donation</item>
-        <item>Store</item>
-        <item>Contact us</item>
         <item>Payment Method</item>
         <item>Card Payment</item>
         <item>Net Banking</item>
     </string-array>
-
 </resources>
