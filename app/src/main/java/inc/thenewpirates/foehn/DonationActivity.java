@@ -10,38 +10,10 @@ import android.widget.FrameLayout;
 
 public class DonationActivity extends AppCompatActivity {
     Intent intent;
-    CharSequence mtitle;
-    String[] fragmenttitles;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donation);
-        mtitle = getTitle();
-        fragmenttitles = getResources().getStringArray(R.array.fragmenttitles);
-        getSupportFragmentManager().addOnBackStackChangedListener(new android.support.v4.app.FragmentManager.OnBackStackChangedListener() {
-            @Override
-            public void onBackStackChanged() {
-                if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-                    String name = getSupportFragmentManager()
-                            .getBackStackEntryAt((getSupportFragmentManager().getBackStackEntryCount() - 1))
-                            .getName();
-                    if (getSupportActionBar() != null) {
-                        getSupportActionBar().setTitle(name);
-                    }
-                }
-            }
-
-        });
-    }
-
-    public void setTitle(CharSequence title) {
-
-        mtitle = title;
-
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(mtitle);
-        }
     }
 
     public void donateprocess(View view) {
@@ -86,7 +58,6 @@ public class DonationActivity extends AppCompatActivity {
 
 
     public void paymentmethod(View view) {
-        setTitle(fragmenttitles[1]);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.nav_donation, new PaymentMethod1Fragment());
         transaction.addToBackStack("Payment Method");
@@ -94,7 +65,6 @@ public class DonationActivity extends AppCompatActivity {
     }
 
     public void cardpaymentprocess(View view) {
-        setTitle(fragmenttitles[2]);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.nav_donation, new CardPayment1Fragment());
         transaction.addToBackStack("Card Payment");
@@ -102,7 +72,6 @@ public class DonationActivity extends AppCompatActivity {
     }
 
     public void netbankingprocess(View view) {
-        setTitle(fragmenttitles[3]);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.nav_donation, new NetBanking1Fragment());
         transaction.addToBackStack("Net Banking");
@@ -160,9 +129,13 @@ public class DonationActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
         getSupportFragmentManager().popBackStack();
         super.onBackPressed();
+        FrameLayout fm = (FrameLayout) findViewById(R.id.nav_donation);
+        if (fm != null) {
+            fm.removeAllViews();
+        }
+        View.inflate(this, R.layout.activity_donation, fm);
     }
 
 }

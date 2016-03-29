@@ -30,7 +30,6 @@ public class CardPayment1Fragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
     }
 
     @Override
