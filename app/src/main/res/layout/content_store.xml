@@ -13,4 +13,12 @@
     tools:context="inc.thenewpirates.foehn.StoreActivity"
     tools:showIn="@layout/activity_store">
 
+    <fragment
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:name="inc.thenewpirates.foehn.SupportFragment"
+        android:id="@+id/fragment"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        tools:layout="@layout/support_fragment" />
 </RelativeLayout>

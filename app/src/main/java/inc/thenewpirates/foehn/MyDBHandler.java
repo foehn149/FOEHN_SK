@@ -17,6 +17,8 @@ public class MyDBHandler extends AppCompatActivity {
     SignupActivity s1;
     Intent intent;
     int no = 1;
+    String tfname,tlname;
+    int tnum,id1;
 
     private static final String DATABASE_NAME = "foehn.db";
     private static final String TABLE_NAME = "foehn";
@@ -85,7 +87,7 @@ public class MyDBHandler extends AppCompatActivity {
         if (p.get_fname().equals("")) {
             no = 21;
         }
-        else if (p.get_fname().length()<2) {
+        else if (p.get_fname().length()==1) {
             no = 22;
         }
         else if (p.get_mobile().equals("")) {
@@ -124,6 +126,8 @@ public class MyDBHandler extends AppCompatActivity {
             if(checkEmail(p.get_email())) {
                 ContentValues values = new ContentValues();
 
+
+
                 values.put(FNAME, p.get_fname());
                 values.put(LNAME, p.get_lname());
 
@@ -148,6 +152,211 @@ public class MyDBHandler extends AppCompatActivity {
         }
         return no;
     }
+
+    public String returnFname(){
+        String fname="";
+        Cursor cursor = sqLiteDatabase.query(TABLE_NAME, null, null,
+                null, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+
+                cursor.getString(cursor.getColumnIndex("fname"));
+            } while (cursor.moveToNext());
+            cursor.close();
+
+
+        }
+        return tfname;
+    }
+
+    public String returnLname(){
+        String lname="";
+        Cursor cursor = sqLiteDatabase.query(TABLE_NAME, null, null,
+                null, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+
+                cursor.getString(cursor.getColumnIndex("lname"));
+            } while (cursor.moveToNext());
+            cursor.close();
+
+
+        }
+        return tlname;
+    }
+
+
+
+
+    public String genID(String fname,String lname){
+        String year,ny,nys="",nysn,fcc,lcc,fcc1,id;
+        char fc,fc1,lc;
+        String no2,test="";
+        int num;
+        num=tnum;
+
+
+        if (num<10){
+            fc = fname.charAt(0);
+            lc = lname.charAt(0);
+
+            fcc = String.valueOf(fc);
+            fcc = fcc.toUpperCase();
+
+            lcc = String.valueOf(lc);
+            lcc = lcc.toUpperCase();
+
+            ny = "16" ;
+            no2 = "000";
+            fcc = fcc.concat(lcc);
+
+            ny = fcc.concat(ny);
+            nys = ny.concat(no2);
+
+            nysn = String.valueOf(num);
+            nys = nys.concat(nysn);
+
+        }
+        else if(num<100){
+            fc = fname.charAt(0);
+            lc = lname.charAt(0);
+
+            fcc = String.valueOf(fc);
+            fcc = fcc.toUpperCase();
+
+            lcc = String.valueOf(lc);
+            lcc = lcc.toUpperCase();
+
+            ny = "16" ;
+            no2 = "00";
+            fcc = fcc.concat(lcc);
+
+            ny = fcc.concat(ny);
+            nys = ny.concat(no2);
+
+            nysn = String.valueOf(num);
+            nys = nys.concat(nysn);
+
+        }
+        else if(num<1000){
+            fc = fname.charAt(0);
+            lc = lname.charAt(0);
+
+            fcc = String.valueOf(fc);
+            fcc = fcc.toUpperCase();
+
+            lcc = String.valueOf(lc);
+            lcc = lcc.toUpperCase();
+
+            ny = "16" ;
+            no2 = "0";
+            fcc = fcc.concat(lcc);
+
+            ny = fcc.concat(ny);
+            nys = ny.concat(no2);
+
+            nysn = String.valueOf(num);
+            nys = nys.concat(nysn);
+
+        }
+
+        return nys;
+    }
+
+    public String genID1(String fname,String lname){
+        String year,ny,nys="",nysn,fcc,lcc,fcc1,id;
+        char fc,fc1,lc;
+        String no2,test;
+        int num = 0;
+
+
+        Cursor cursor = sqLiteDatabase.query(TABLE_NAME, null, null,
+                null, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+
+                test = cursor.getString(cursor.getColumnIndex("_id"));
+
+
+            } while (cursor.moveToNext());
+            cursor.close();
+
+            num = Integer.parseInt(test);
+        }
+
+
+
+
+        if (num<10){
+            fc = fname.charAt(0);
+            lc = lname.charAt(0);
+
+            fcc = String.valueOf(fc);
+            fcc = fcc.toUpperCase();
+
+            lcc = String.valueOf(lc);
+            lcc = lcc.toUpperCase();
+
+            ny = "16" ;
+            no2 = "000";
+            fcc = fcc.concat(lcc);
+
+            ny = fcc.concat(ny);
+            nys = ny.concat(no2);
+
+            nysn = String.valueOf(num);
+            nys = nys.concat(nysn);
+
+        }
+        else if(num<100){
+            fc = fname.charAt(0);
+            lc = lname.charAt(0);
+
+            fcc = String.valueOf(fc);
+            fcc = fcc.toUpperCase();
+
+            lcc = String.valueOf(lc);
+            lcc = lcc.toUpperCase();
+
+            ny = "16" ;
+            no2 = "00";
+            fcc = fcc.concat(lcc);
+
+            ny = fcc.concat(ny);
+            nys = ny.concat(no2);
+
+            nysn = String.valueOf(num);
+            nys = nys.concat(nysn);
+
+        }
+        else if(num<1000){
+            fc = fname.charAt(0);
+            lc = lname.charAt(0);
+
+            fcc = String.valueOf(fc);
+            fcc = fcc.toUpperCase();
+
+            lcc = String.valueOf(lc);
+            lcc = lcc.toUpperCase();
+
+            ny = "16" ;
+            no2 = "0";
+            fcc = fcc.concat(lcc);
+
+            ny = fcc.concat(ny);
+            nys = ny.concat(no2);
+
+            nysn = String.valueOf(num);
+            nys = nys.concat(nysn);
+
+        }
+
+        return nys;
+    }
+
 
 
     public boolean checkEmail(String e){
@@ -202,6 +411,9 @@ public class MyDBHandler extends AppCompatActivity {
                     String password1 = p.get_pass();
                     String productname = cursor.getString(cursor.getColumnIndex("email"));
                     String password = cursor.getString(cursor.getColumnIndex("pass"));
+                    String fname = cursor.getString(cursor.getColumnIndex("fname"));
+                    String lname = cursor.getString(cursor.getColumnIndex("lname"));
+                    String tid = cursor.getString(cursor.getColumnIndex("_id"));
 
                      if(!productname.equals(productname1) && !password.equals(password1)){
                         test = "wc";
@@ -216,6 +428,9 @@ public class MyDBHandler extends AppCompatActivity {
                     else if(productname.equals(productname1) && password.equals(password1)){
                         Toast.makeText(context, " Welcome to F.O.E.H.N : )", Toast.LENGTH_LONG).show();
                         test = "yeah";
+                         tfname=fname;
+                         tlname=lname;
+                         tnum = Integer.parseInt(tid);
                         break;
                     }
                     else{

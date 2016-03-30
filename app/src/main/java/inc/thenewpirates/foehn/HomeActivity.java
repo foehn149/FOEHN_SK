@@ -1,6 +1,8 @@
 package inc.thenewpirates.foehn;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
@@ -89,6 +91,15 @@ public class HomeActivity extends AppCompatActivity {
         }
 
     }
+
+   /* public void logoutClicked(View view){
+        SharedPreferences sp = getSharedPreferences("file", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.clear();
+        editor.apply();
+        intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.AfterLoginActivity");
+        startActivity(intent);
+    }*/
 
     public void setNavigationDrawer() {
         mdrawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -218,5 +229,16 @@ public class HomeActivity extends AppCompatActivity {
         client.disconnect();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences sp = getSharedPreferences("file", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        if(sp.contains("fname")){
+            Intent i = new Intent(HomeActivity.this,AfterLoginActivity.class);
+            startActivity(i);
 
+        }
+
+    }
 }

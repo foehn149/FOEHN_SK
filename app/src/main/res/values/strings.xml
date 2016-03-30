@@ -117,6 +117,7 @@
     <string name="store">Store</string>
     <string name="contactus">Contact us</string>
     <string name="login">Login</string>
+    <string name="logout">Logout</string>
     <string name="welldoneText">WellDone</string>
 
     <!-- Srting related to payment method-->
@@ -149,5 +150,8 @@
 
     <string name="paymentmethod">Payment Method</string>
     <string name="cardpaymentdetail">Card Payment Detail</string>
+    <string name="title_activity_after_login">AfterLoginActivity</string>
+
+    <string name="action_settings">Settings</string>
 
 </resources>

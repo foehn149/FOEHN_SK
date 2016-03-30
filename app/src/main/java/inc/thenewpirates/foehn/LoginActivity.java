@@ -2,6 +2,7 @@ package inc.thenewpirates.foehn;
 
 import android.content.Intent;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
+
 
     private EditText emailedittext, passedittext;
     //View focusView;
@@ -53,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void checkButtonClicked(View view ){
+        String temp;
 
             String email = emailInput.getText().toString();
             String pass = passInput.getText().toString();
@@ -90,7 +93,27 @@ public class LoginActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
                 passInput.setText("");
             } else if (abc.equals(abc1)) {
-                i = new Intent(LoginActivity.this, Mypage.class);
+
+                String fname = dbHandler.returnFname();
+                String lname = dbHandler.returnLname();
+
+
+                if(lname.equals("")){
+                    temp = String.valueOf(fname.charAt(1));
+                }
+                else{
+                    temp=lname;
+                }
+
+                String id = dbHandler.genID(fname,temp);
+                SharedPreferences sp = getSharedPreferences("file", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("fname",fname);
+                editor.putString("lname",lname);
+                editor.putString("id",id);
+
+                editor.apply();
+                i = new Intent(LoginActivity.this, AfterLoginActivity.class);
                 startActivity(i);
             }
             else{

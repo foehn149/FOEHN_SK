@@ -2,6 +2,7 @@ package inc.thenewpirates.foehn;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -40,6 +41,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     public void signupButtonClicked(View view) {
+        String temp;
 
         String fname = fnameInput.getText().toString();
         String lname = lnameInput.getText().toString();
@@ -53,10 +55,30 @@ public class SignupActivity extends AppCompatActivity {
 
 
             if (dbHandler.checkEmail(email)) {
+
+
                 p = new Product(fname, lname, mobile, dob, email.toLowerCase(), pass, cpass);
                 int c = dbHandler.addProduct(p);
+
+
+
                 if (c == 0) {
-                    intent = new Intent(SignupActivity.this, Mypage.class);
+                    if(lname.equals("")){
+                        temp = String.valueOf(fname.charAt(1));
+                    }
+                    else{
+                        temp=lname;
+                    }
+                    String id = dbHandler.genID1(fname,temp);
+                    SharedPreferences sp = getSharedPreferences("file", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("fname",fname);
+                    editor.putString("lname",lname);
+                    editor.putString("id",id);
+
+                    editor.apply();
+
+                    intent = new Intent(SignupActivity.this, AfterLoginActivity.class);
                     startActivity(intent);
                 } else if (c == 21) {
                     Snackbar.make(view, " Please enter first name .", Snackbar.LENGTH_LONG)
