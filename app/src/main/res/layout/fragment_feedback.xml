@@ -66,8 +66,9 @@
             android:id="@+id/feedbacksubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/feedbacksubmit"
-            android:textStyle="bold" />
+            android:background="@drawable/button"
+            android:onClick="feedbackclicked"
+            android:text="@string/feedbacksubmit" />
 
     </LinearLayout>
     </ScrollView>

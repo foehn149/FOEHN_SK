@@ -1,4 +1,4 @@
-<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardpaymentfragment"
     android:layout_width="match_parent"
@@ -80,9 +80,11 @@
                 android:id="@+id/continueprocedure"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button"
                 android:enabled="true"
+                android:onClick="furtherprocess"
                 android:text="@string/continueprocedure" />
 
         </LinearLayout>
     </ScrollView>
-</android.support.v7.widget.LinearLayoutCompat>
+</FrameLayout>

@@ -1,4 +1,4 @@
-<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/paymentmethodfragment"
     android:layout_width="match_parent"
@@ -69,4 +69,4 @@
         </LinearLayout>
     </ScrollView>
 
-</android.support.v7.widget.LinearLayoutCompat>
+</FrameLayout>

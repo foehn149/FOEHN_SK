@@ -35,10 +35,11 @@ public class SplashActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                Intent i = new Intent(SplashActivity.this, HomeActivity.class);
+                Intent i = new Intent(SplashActivity.this, HomeActivity_Before.class);
                 startActivity(i);
                 finish();
             }
         }.start();
+        Runtime.getRuntime().maxMemory();
     }
 }

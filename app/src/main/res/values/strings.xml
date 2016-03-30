@@ -9,13 +9,14 @@
 
     <!-- Strings related to actionbar title -->
     <string name="visit_foehn">Visit Foehn</string>
-    <string name="title_activity_home">Home</string>
+    <string name="title_activity_home_before">Home</string>
     <string name="title_activity_login">Log in</string>
     <string name="title_activity_signup">Sign up</string>
     <string name="title_activity_donation">Donation</string>
     <string name="title_activity_store">Store</string>
     <string name="title_activity_contactus">Contact us</string>
     <string name="title_activity_aboutus">About us</string>
+    <string name="title_activity_home_after">Home</string>
 
     <!-- Strings related to login -->
     <string name="email">Email</string>
@@ -141,17 +142,31 @@
     <string name="axisbank">AXIS Bank</string>
     <string name="kotakbank">Kotak Bank</string>
 
-
+    <!-- Srting related to Donate title-->
     <string name="fooddonatename">Food Donate</string>
     <string name="orphandonatename">Orphan Donate</string>
     <string name="educationdonatename">Education Donate</string>
     <string name="healthdonatename">Health Donate</string>
     <string name="naturalcalamitiesdonatename">Natural Calamities Donate</string>
 
+    <!-- Srting related to payment method and card payment title-->
     <string name="paymentmethod">Payment Method</string>
     <string name="cardpaymentdetail">Card Payment Detail</string>
-    <string name="title_activity_after_login">AfterLoginActivity</string>
+    <string name="afterloginid">AfterLoginId</string>
+    <string name="afterloginid2">AfterLoginId2</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="amount">Amount</string>
+
+    <!-- Srting related to size-->
+    <string name="xs">XS " ( Extra Small : 38 ) "</string>
+    <string name="s">S " ( Small : 39 ) "</string>
+    <string name="m">M " ( Medium : 40 ) " </string>
+    <string name="l">L " ( Large : 42 ) "</string>
+    <string name="xl">XL " ( Extra Large : 44 ) "</string>
+    <string name="xxl">XXL " ( Double Extra Large : 46 ) "</string>
+    <string name="size">Size</string>
+
+    <string name="left">&lt;</string>
+    <string name="right">></string>
 
 </resources>

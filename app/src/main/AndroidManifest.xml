@@ -29,10 +29,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomeActivity"
+            android:name=".HomeActivity_Before"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
-            android:label="@string/title_activity_home"
+            android:label="@string/title_activity_home_before"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
         <!--
@@ -48,10 +48,10 @@
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
             android:label="@string/title_activity_login"
-            android:parentActivityName=".HomeActivity">
+            android:parentActivityName=".HomeActivity_Before">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="inc.thenewpirates.foehn.HomeActivity" />
+                android:value="inc.thenewpirates.foehn.HomeActivity_Before" />
         </activity>
         <activity
             android:name=".SignupActivity"
@@ -63,59 +63,105 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="inc.thenewpirates.foehn.LoginActivity" />
         </activity>
-        <activity android:name=".Mypage">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="inc.thenewpirates.foehn.HomeActivity" />
-        </activity>
         <activity
-            android:name=".DonationActivity"
+            android:name=".DonationActivity_Before"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
             android:label="@string/title_activity_donation"
             android:launchMode="singleTask"
-            android:parentActivityName=".HomeActivity">
+            android:parentActivityName=".HomeActivity_Before">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="inc.thenewpirates.foehn.HomeActivity" />
+                android:value="inc.thenewpirates.foehn.HomeActivity_Before" />
         </activity>
         <activity
-            android:name=".ContactusActivity"
+            android:name=".ContactusActivity_Before"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
             android:label="@string/title_activity_contactus"
             android:launchMode="singleTask"
-            android:parentActivityName=".HomeActivity">
+            android:parentActivityName=".HomeActivity_Before">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="inc.thenewpirates.foehn.HomeActivity" />
+                android:value="inc.thenewpirates.foehn.HomeActivity_Before" />
         </activity>
         <activity
-            android:name=".StoreActivity"
+            android:name=".StoreActivity_Before"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
             android:label="@string/title_activity_store"
             android:launchMode="singleTask"
-            android:parentActivityName=".HomeActivity">
+            android:parentActivityName=".HomeActivity_Before">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="inc.thenewpirates.foehn.HomeActivity" />
+                android:value="inc.thenewpirates.foehn.HomeActivity_Before" />
         </activity>
         <activity
-            android:name=".AboutusActivity"
+            android:name=".AboutusActivity_Before"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
             android:label="@string/title_activity_aboutus"
             android:launchMode="singleTask"
-            android:parentActivityName=".HomeActivity">
+            android:parentActivityName=".HomeActivity_Before">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="inc.thenewpirates.foehn.HomeActivity" />
+                android:value="inc.thenewpirates.foehn.HomeActivity_Before" />
         </activity>
         <activity
-            android:name=".AfterLoginActivity"
-            android:label="@string/title_activity_after_login"
-            android:theme="@style/AppTheme.NoActionBar"/>
-    </application>
+            android:name=".HomeActivity_After"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
+            android:hardwareAccelerated="true"
+            android:label="@string/title_activity_home_after"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".AboutusActivity_After"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
+            android:hardwareAccelerated="true"
+            android:label="@string/title_activity_aboutus"
+            android:launchMode="singleTask"
+            android:parentActivityName=".HomeActivity_After">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="inc.thenewpirates.foehn.HomeActivity_After" />
+        </activity>
+
+        <activity
+            android:name=".ContactusActivity_After"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
+            android:hardwareAccelerated="true"
+            android:label="@string/title_activity_contactus"
+            android:launchMode="singleTask"
+            android:parentActivityName=".HomeActivity_After">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="inc.thenewpirates.foehn.HomeActivity_After" />
+        </activity>
+
+        <activity
+            android:name=".DonationActivity_After"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
+            android:hardwareAccelerated="true"
+            android:label="@string/title_activity_donation"
+            android:launchMode="singleTask"
+            android:parentActivityName=".HomeActivity_After">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="inc.thenewpirates.foehn.HomeActivity_After" />
+        </activity>
+
+        <activity
+            android:name=".StoreActivity_After"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
+            android:hardwareAccelerated="true"
+            android:label="@string/title_activity_store"
+            android:launchMode="singleTask"
+            android:parentActivityName=".HomeActivity_After">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="inc.thenewpirates.foehn.HomeActivity_After" />
+        </activity>
+
+    </application>
 </manifest>
