@@ -90,8 +90,8 @@ public class HomeActivity_After extends AppCompatActivity {
             String lname = sp.getString("lname", "");
             String id = sp.getString("id", "");
 
-            AfterLoginId.setText(" Welcome " + fname + " " + lname);
-            AfterLoginId2.setText(" ID:- " + id);
+            AfterLoginId.setText(" Logged in as " + fname.toUpperCase() + " " + lname.toUpperCase());
+            AfterLoginId2.setText(" ID : "+" [ "+id+" ] ");
 
         } else {
             AfterLoginId.setText("Empty");
