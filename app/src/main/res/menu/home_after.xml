@@ -5,10 +5,8 @@
     <item
         android:id="@+id/aboutus"
         android:icon="@drawable/aboutus"
-        android:orderInCategory="100"
+        android:orderInCategory="110"
         android:title="@string/aboutus"
         app:showAsAction="ifRoom" />
-
-
 
 </menu>

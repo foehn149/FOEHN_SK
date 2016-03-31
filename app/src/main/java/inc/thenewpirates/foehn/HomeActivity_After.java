@@ -23,6 +23,7 @@ import android.widget.ViewFlipper;
 
 public class HomeActivity_After extends AppCompatActivity {
 
+    private static final int uid = 1236;
     TextView AfterLoginId, AfterLoginId2;
     Intent intent = new Intent();
     DrawerLayout mdrawerlayout;
@@ -38,7 +39,6 @@ public class HomeActivity_After extends AppCompatActivity {
     };
     ViewFlipper mViewFlipper;
     NotificationCompat.Builder n;
-    private static final int uid = 1236;
     ImageView imageView;
 
     @Override
@@ -166,7 +166,8 @@ public class HomeActivity_After extends AppCompatActivity {
         n.setTicker("Successfully Logged out");
         n.setWhen(System.currentTimeMillis());
         n.setContentTitle("Thank You !");
-        n.setContentText("Successfully logged out, Have a good day");
+        n.setContentText("Successfully logged out.");
+        n.setVisibility(View.GONE);
 
         Intent i = new Intent(this,HomeActivity_Before.class);
         PendingIntent p = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);

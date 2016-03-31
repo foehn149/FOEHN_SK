@@ -8,4 +8,5 @@
     <item name="Feedback" type="drawable">@drawable/feedback</item>
     <item name="aboutus" type="drawable">@drawable/aboutus</item>
     <item name="fab" type="drawable">@drawable/donatefab</item>
+    <item name="elizabeth" type="drawable">@drawable/microphone</item>
 </resources>

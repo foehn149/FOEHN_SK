@@ -108,15 +108,6 @@ public class HomeActivity_Before extends AppCompatActivity {
         Runtime.getRuntime().maxMemory();
     }
 
-  /* public void logoutClicked(View view){
-        SharedPreferences sp = getSharedPreferences("file", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.clear();
-        editor.apply();
-        intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.HomeActivity_Before");
-        startActivity(intent);
-    }*/
-
     public void setNavigationDrawer() {
         mdrawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navView = (NavigationView) findViewById(R.id.nav_view);
@@ -192,7 +183,6 @@ public class HomeActivity_Before extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // The action bar home_before/up action should open or close the drawer.
-
         int id = item.getItemId();
         if (id == R.id.home) {
             mdrawerlayout.openDrawer(GravityCompat.START);
