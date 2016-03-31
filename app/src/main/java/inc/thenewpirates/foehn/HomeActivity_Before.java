@@ -95,6 +95,7 @@ public class HomeActivity_Before extends AppCompatActivity {
             mViewFlipper.setAutoStart(true);
             mViewFlipper.setFlipInterval(3000);
         }
+
         t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -103,6 +104,7 @@ public class HomeActivity_Before extends AppCompatActivity {
                 }
             }
         });
+
         Runtime.getRuntime().maxMemory();
     }
 
@@ -207,6 +209,7 @@ public class HomeActivity_Before extends AppCompatActivity {
     }
 
     public void speakBaby(){
+
         abc=" Hi , I am Elizabeth . welcome to phonn. I am a donation application created by the new pirates . i am here to help u exploring the application . Here you can either donate money for diffrent categories like food, orphans, education, health, natural calamities, or u can buy our products. please sign up or  login to Buy the products or donating the money. For help u can convey by sending queries to e mail given in contact us. dont forget to give feed back. have a good day, enjoy the application.";
         t1.speak(abc, TextToSpeech.QUEUE_FLUSH, null);
     }
@@ -264,6 +267,14 @@ public class HomeActivity_Before extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.UK);
+                }
+            }
+        });
         SharedPreferences sp = getSharedPreferences("file", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         if (sp.contains("fname")) {
