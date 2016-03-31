@@ -1,5 +1,7 @@
 package inc.thenewpirates.foehn;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +12,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,6 +37,8 @@ public class HomeActivity_After extends AppCompatActivity {
             R.drawable.naturalcalamities_c
     };
     ViewFlipper mViewFlipper;
+    NotificationCompat.Builder n;
+    private static final int uid = 1236;
     ImageView imageView;
 
     @Override
@@ -96,6 +101,8 @@ public class HomeActivity_After extends AppCompatActivity {
         } else {
             AfterLoginId.setText("Empty");
         }
+        n = new NotificationCompat.Builder(this);
+        n.setAutoCancel(true);
         Runtime.getRuntime().maxMemory();
     }
 
@@ -147,9 +154,26 @@ public class HomeActivity_After extends AppCompatActivity {
             SharedPreferences.Editor editor = sp.edit();
             editor.clear();
             editor.apply();
+            notifyMe();
             intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.HomeActivity_Before");
             startActivity(intent);
         }
+
+    }
+
+    public void notifyMe(){
+        n.setSmallIcon(R.drawable.ic_launcher);
+        n.setTicker("Successfully Logged out");
+        n.setWhen(System.currentTimeMillis());
+        n.setContentTitle("Thank You !");
+        n.setContentText("Successfully logged out, Have a good day");
+
+        Intent i = new Intent(this,HomeActivity_Before.class);
+        PendingIntent p = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+        n.setContentIntent(p);
+
+        NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        nm.notify(uid, n.build());
 
     }
 

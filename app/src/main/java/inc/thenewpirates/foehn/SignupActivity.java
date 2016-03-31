@@ -1,11 +1,14 @@
 package inc.thenewpirates.foehn;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.EditText;
 
@@ -19,6 +22,8 @@ public class SignupActivity extends AppCompatActivity {
     Context context;
     Intent intent;
     Product p;
+    NotificationCompat.Builder n;
+    private static final int uid = 1234;
     EditText fnameInput, lnameInput, mobileInput, dobInput, emailInput, passInput, cpassInput;
 
 
@@ -36,6 +41,8 @@ public class SignupActivity extends AppCompatActivity {
         emailInput = (EditText) findViewById(R.id.emailInput);
         passInput = (EditText) findViewById(R.id.passInput);
         cpassInput = (EditText) findViewById(R.id.cpassInput);
+        n = new NotificationCompat.Builder(this);
+        n.setAutoCancel(true);
         Runtime.getRuntime().maxMemory();
     }
 
@@ -72,7 +79,7 @@ public class SignupActivity extends AppCompatActivity {
                 editor.putString("id", id);
 
                 editor.apply();
-
+                notifyMe(id);
                 intent = new Intent(SignupActivity.this, HomeActivity_After.class);
                 startActivity(intent);
             } else if (c == 21) {
@@ -136,6 +143,22 @@ public class SignupActivity extends AppCompatActivity {
                     .setAction("Action", null).show();
         }
 
+
+    }
+
+    public void notifyMe(String id){
+        n.setSmallIcon(R.drawable.ic_launcher);
+        n.setTicker("Successfully Signed Up");
+        n.setWhen(System.currentTimeMillis());
+        n.setContentTitle("Welcome to F.O.E.H.N.");
+        n.setContentText(" You have successfully signed up");
+
+        Intent i = new Intent(this,HomeActivity_Before.class);
+        PendingIntent p = PendingIntent.getActivity(this,0,i,PendingIntent.FLAG_UPDATE_CURRENT);
+        n.setContentIntent(p);
+
+        NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        nm.notify(uid,n.build());
 
     }
 

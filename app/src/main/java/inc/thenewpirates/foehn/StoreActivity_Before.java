@@ -1,6 +1,9 @@
 package inc.thenewpirates.foehn;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,6 +20,7 @@ public class StoreActivity_Before extends AppCompatActivity {
     Context context;
     String c = "";
     ImageSwitcher sw;
+    StoreActivity_After sta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,23 +52,17 @@ public class StoreActivity_Before extends AppCompatActivity {
         if(id==R.id.storeText)*/
 
         switch (c) {
-            case "ltv1":
-                Toast.makeText(this, " Please Login to Purchase the product ", Toast.LENGTH_LONG).show();
+            case "ltv1":callDialog("Girls T-Shirt");
                 break;
-            case "wbv1":
-                Toast.makeText(this, " Please Login to Purchase the product ", Toast.LENGTH_LONG).show();
+            case "wbv1":callDialog("Wrist Band");
                 break;
-            case "cv1":
-                Toast.makeText(this, " Please Login to Purchase the product ", Toast.LENGTH_LONG).show();
+            case "cv1":callDialog("Cap");
                 break;
-            case "hkv1":
-                Toast.makeText(this, " Please Login to Purchase the product ", Toast.LENGTH_LONG).show();
+            case "hkv1":callDialog("Handkerchief");
                 break;
-            case "hv1":
-                Toast.makeText(this, " Please Login to Purchase the product ", Toast.LENGTH_LONG).show();
+            case "hv1":callDialog("Hoody");
                 break;
-            case "tv1":
-                Toast.makeText(this, " Please Login to Purchase the product ", Toast.LENGTH_LONG).show();
+            case "tv1":callDialog("Boys T-Shirt");
                 break;
         }
     }
@@ -106,6 +104,31 @@ public class StoreActivity_Before extends AppCompatActivity {
                 break;
         }
 
+    }
+
+    public void callDialog( String img){
+        AlertDialog.Builder ab= new AlertDialog.Builder(this);
+        ab.setTitle(" Buy Products ");
+        ab
+                .setMessage("To buy "+img+" you have to login , Do you want to login ? ")
+                .setCancelable(false)
+                .setPositiveButton(" Yes ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent i = new Intent(StoreActivity_Before.this,LoginActivity.class);
+                        startActivity(i);
+                    }
+                })
+                .setNegativeButton(" No ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+
+        AlertDialog ad = ab.create();
+        ad.show();
     }
 
     public void rightClicked(View view) {

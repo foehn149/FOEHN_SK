@@ -1,5 +1,7 @@
 package inc.thenewpirates.foehn;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,6 +9,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.EditText;
 
@@ -20,6 +23,8 @@ public class LoginActivity extends AppCompatActivity {
     FloatingActionButton fab;
     Intent i;
     MyDBHandler dbHandler;
+    NotificationCompat.Builder n;
+    private static final int uid = 1235;
     Product p;
 
     @Override
@@ -43,6 +48,8 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+        n = new NotificationCompat.Builder(this);
+        n.setAutoCancel(true);
         Runtime.getRuntime().maxMemory();
     }
 
@@ -104,6 +111,7 @@ public class LoginActivity extends AppCompatActivity {
             editor.putString("id", id);
 
             editor.apply();
+            notifyMe(id);
             i = new Intent(LoginActivity.this, HomeActivity_After.class);
             startActivity(i);
         } else {
@@ -113,6 +121,22 @@ public class LoginActivity extends AppCompatActivity {
             emailInput.setText("");
 
         }
+    }
+
+    public void notifyMe(String id){
+        n.setSmallIcon(R.drawable.ic_launcher);
+        n.setTicker("Successfully Logged In");
+        n.setWhen(System.currentTimeMillis());
+        n.setContentTitle("Welcome to F.O.E.H.N.");
+        n.setContentText(" You have successfully logged in");
+
+        Intent i = new Intent(this,HomeActivity_Before.class);
+        PendingIntent p = PendingIntent.getActivity(this,0,i,PendingIntent.FLAG_UPDATE_CURRENT);
+        n.setContentIntent(p);
+
+        NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        nm.notify(uid,n.build());
+
     }
 
 

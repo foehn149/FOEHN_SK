@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -23,10 +24,14 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.Locale;
+
 public class HomeActivity_Before extends AppCompatActivity {
 
     DrawerLayout mdrawerlayout;
     Toolbar toolbar;
+    String abc;
+    TextToSpeech t1;
     NavigationView navView;
     ActionBarDrawerToggle drawerToggle;
     Intent intent = new Intent();
@@ -90,6 +95,14 @@ public class HomeActivity_Before extends AppCompatActivity {
             mViewFlipper.setAutoStart(true);
             mViewFlipper.setFlipInterval(3000);
         }
+        t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.UK);
+                }
+            }
+        });
         Runtime.getRuntime().maxMemory();
     }
 
@@ -153,6 +166,16 @@ public class HomeActivity_Before extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+
+        if(t1 !=null){
+            t1.stop();
+            t1.shutdown();
+        }
+        super.onPause();
+    }
+
+    @Override
     public void onBackPressed() {
         mdrawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (mdrawerlayout != null && mdrawerlayout.isDrawerOpen(GravityCompat.START)) {
@@ -177,7 +200,15 @@ public class HomeActivity_Before extends AppCompatActivity {
             intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.AboutusActivity_Before");
             startActivity(intent);
         }
+        else if (id == R.id.elizabeth){
+            speakBaby();
+        }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void speakBaby(){
+        abc=" Hi , I am Elizabeth . welcome to phonn. I am a donation application created by the new pirates . i am here to help u exploring the application . Here you can either donate money for diffrent categories like food, orphans, education, health, natural calamities, or u can buy our products. please sign up or  login to Buy the products or donating the money. For help u can convey by sending queries to e mail given in contact us. dont forget to give feed back. have a good day, enjoy the application.";
+        t1.speak(abc, TextToSpeech.QUEUE_FLUSH, null);
     }
 
     @Override
