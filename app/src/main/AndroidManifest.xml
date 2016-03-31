@@ -114,7 +114,6 @@
             android:label="@string/title_activity_home_after"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".AboutusActivity_After"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
@@ -126,7 +125,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="inc.thenewpirates.foehn.HomeActivity_After" />
         </activity>
-
         <activity
             android:name=".ContactusActivity_After"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
@@ -138,7 +136,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="inc.thenewpirates.foehn.HomeActivity_After" />
         </activity>
-
         <activity
             android:name=".DonationActivity_After"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
@@ -150,7 +147,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="inc.thenewpirates.foehn.HomeActivity_After" />
         </activity>
-
         <activity
             android:name=".StoreActivity_After"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
@@ -162,6 +158,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="inc.thenewpirates.foehn.HomeActivity_After" />
         </activity>
-
     </application>
+
 </manifest>
