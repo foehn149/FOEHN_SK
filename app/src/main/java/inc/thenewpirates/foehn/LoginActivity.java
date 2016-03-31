@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 public class LoginActivity extends AppCompatActivity {
 
 
-    EditText fnameInput,lnameInput,mobileInput,dobInput,emailInput,passInput,cpassInput;
+    EditText fnameInput, lnameInput, mobileInput, dobInput, emailInput, passInput, cpassInput;
     FloatingActionButton fab;
     Intent i;
     MyDBHandler dbHandler;
@@ -28,17 +28,17 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         dbHandler = new MyDBHandler(this);
         dbHandler.open();
-        fnameInput = (EditText)findViewById(R.id.fnameInput);
-        lnameInput = (EditText)findViewById(R.id.lnameInput);
-        mobileInput = (EditText)findViewById(R.id.mobileInput);
-        dobInput = (EditText)findViewById(R.id.dobInput);
-        emailInput = (EditText)findViewById(R.id.email);
-        passInput = (EditText)findViewById(R.id.password);
-        cpassInput = (EditText)findViewById(R.id.cpassInput);
+        fnameInput = (EditText) findViewById(R.id.fnameInput);
+        lnameInput = (EditText) findViewById(R.id.lnameInput);
+        mobileInput = (EditText) findViewById(R.id.mobileInput);
+        dobInput = (EditText) findViewById(R.id.dobInput);
+        emailInput = (EditText) findViewById(R.id.email);
+        passInput = (EditText) findViewById(R.id.password);
+        cpassInput = (EditText) findViewById(R.id.cpassInput);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view){
-                i = new Intent(LoginActivity.this,SignupActivity.class);
+            public void onClick(View view) {
+                i = new Intent(LoginActivity.this, SignupActivity.class);
                 startActivity(i);
 
             }
@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         Runtime.getRuntime().maxMemory();
     }
 
-    public void checkButtonClicked(View view ){
+    public void checkButtonClicked(View view) {
         String temp;
 
         String email = emailInput.getText().toString().trim();
@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
             Snackbar.make(view, "Please enter email .", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         } else if (!isEmailValid(email.toLowerCase())) {
-            Snackbar.make(view,"Please enter your Registered Email .", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Please enter your Registered Email .", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             emailInput.setText("");
             passInput.setText("");
@@ -92,8 +92,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (lname.equals("")) {
                 temp = String.valueOf(fname.charAt(1));
-            }
-            else{
+            } else {
                 temp = lname;
             }
 
@@ -127,10 +126,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private boolean isPasswordValid(String password) {
-        boolean a = false ;
+        boolean a = false;
         String as = "";
-        if(!password.equals(as))
-            a=true;
+        if (!password.equals(as))
+            a = true;
         return a;
     }
 

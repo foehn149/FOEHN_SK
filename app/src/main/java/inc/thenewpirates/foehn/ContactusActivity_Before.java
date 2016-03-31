@@ -38,6 +38,7 @@ public class ContactusActivity_Before extends AppCompatActivity {
     public void feedbackclicked(View v) {
         Toast.makeText(this, " Feedback submitted Successfully ", Toast.LENGTH_LONG).show();
     }
+
     public void supportprocess(View view) {
         int id = view.getId();
         if (id == R.id.cusupport) {

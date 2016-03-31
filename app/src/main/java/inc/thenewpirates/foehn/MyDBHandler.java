@@ -1,43 +1,27 @@
 package inc.thenewpirates.foehn;
 
-import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Toast;
 
 public class MyDBHandler extends AppCompatActivity {
-
-    SignupActivity s1;
-    Intent intent;
-    int no = 1;
-    String tfname,tlname;
-    int tnum,id1;
 
     private static final String DATABASE_NAME = "foehn.db";
     private static final String TABLE_NAME = "foehn";
     private static final String ID = "_id";
     private static final int DATABASE_VERSION = 1;
-
     private static final String FNAME = "fname";
     private static final String LNAME = "lname";
-
     private static final String MOBILE = "mobile";
     private static final String DOB = "dob";
-
     private static final String EMAIL = "email";
     private static final String PASS = "pass";
-
     private static final String CPASS = "cpass";
-
-
-
     private static final String TABLE_CREATION_QUERY =
             "create table "
                     + TABLE_NAME
@@ -60,7 +44,11 @@ public class MyDBHandler extends AppCompatActivity {
                     + CPASS
                     + " text"
                     + ");";
-
+    SignupActivity s1;
+    Intent intent;
+    int no = 1;
+    String tfname, tlname;
+    int tnum, id1;
     private EmployeeHelper employeeHelper;
     private SQLiteDatabase sqLiteDatabase;
     private Context context;
@@ -86,46 +74,32 @@ public class MyDBHandler extends AppCompatActivity {
 
         if (p.get_fname().equals("")) {
             no = 21;
-        }
-        else if (p.get_fname().length()==1) {
+        } else if (p.get_fname().length() == 1) {
             no = 22;
-        }
-        else if (p.get_mobile().equals("")) {
+        } else if (p.get_mobile().equals("")) {
             no = 23;
-        }
-        else if (p.get_mobile().length()<10) {
+        } else if (p.get_mobile().length() < 10) {
             no = 231;
-        }
-        else if ( p.get_mobile().length()>12) {
+        } else if (p.get_mobile().length() > 12) {
             no = 232;
-        }
-        else if (p.get_dob().equals("")) {
+        } else if (p.get_dob().equals("")) {
             no = 24;
-        }
-        else if (p.get_dob().length()<8 ) {
+        } else if (p.get_dob().length() < 8) {
             no = 241;
-        }
-        else if ( p.get_dob().length()>10) {
+        } else if (p.get_dob().length() > 10) {
             no = 242;
-        }
-        else if (p.get_email().equals("")) {
-             no = 25;
-        }
-        else if (p.get_pass().equals("")) {
+        } else if (p.get_email().equals("")) {
+            no = 25;
+        } else if (p.get_pass().equals("")) {
             no = 26;
-        }
-
-        else if (p.get_cpass().equals("")) {
+        } else if (p.get_cpass().equals("")) {
             no = 27;
-        }
-        else if(!p.get_pass().equals(p.get_cpass())){
+        } else if (!p.get_pass().equals(p.get_cpass())) {
             no = 267;
-        }
-        else {
+        } else {
 
-            if(checkEmail(p.get_email())) {
+            if (checkEmail(p.get_email())) {
                 ContentValues values = new ContentValues();
-
 
 
                 values.put(FNAME, p.get_fname());
@@ -144,8 +118,7 @@ public class MyDBHandler extends AppCompatActivity {
                     Toast.makeText(context, " Welcome To F.O.E.H.N : )", Toast.LENGTH_LONG).show();
                     no = 0;
                 }
-            }
-            else {
+            } else {
                 no = 1;
             }
 
@@ -153,8 +126,8 @@ public class MyDBHandler extends AppCompatActivity {
         return no;
     }
 
-    public String returnFname(){
-        String fname="";
+    public String returnFname() {
+        String fname = "";
         Cursor cursor = sqLiteDatabase.query(TABLE_NAME, null, null,
                 null, null, null, null);
 
@@ -170,8 +143,8 @@ public class MyDBHandler extends AppCompatActivity {
         return tfname;
     }
 
-    public String returnLname(){
-        String lname="";
+    public String returnLname() {
+        String lname = "";
         Cursor cursor = sqLiteDatabase.query(TABLE_NAME, null, null,
                 null, null, null, null);
 
@@ -188,17 +161,15 @@ public class MyDBHandler extends AppCompatActivity {
     }
 
 
-
-
-    public String genID(String fname,String lname){
-        String year,ny,nys="",nysn,fcc,lcc,fcc1,id;
-        char fc,fc1,lc;
-        String no2,test="";
+    public String genID(String fname, String lname) {
+        String year, ny, nys = "", nysn, fcc, lcc, fcc1, id;
+        char fc, fc1, lc;
+        String no2, test = "";
         int num;
-        num=tnum;
+        num = tnum;
 
 
-        if (num<10){
+        if (num < 10) {
             fc = fname.charAt(0);
             lc = lname.charAt(0);
 
@@ -208,7 +179,7 @@ public class MyDBHandler extends AppCompatActivity {
             lcc = String.valueOf(lc);
             lcc = lcc.toUpperCase();
 
-            ny = "16" ;
+            ny = "16";
             no2 = "000";
             fcc = fcc.concat(lcc);
 
@@ -218,8 +189,7 @@ public class MyDBHandler extends AppCompatActivity {
             nysn = String.valueOf(num);
             nys = nys.concat(nysn);
 
-        }
-        else if(num<100){
+        } else if (num < 100) {
             fc = fname.charAt(0);
             lc = lname.charAt(0);
 
@@ -229,7 +199,7 @@ public class MyDBHandler extends AppCompatActivity {
             lcc = String.valueOf(lc);
             lcc = lcc.toUpperCase();
 
-            ny = "16" ;
+            ny = "16";
             no2 = "00";
             fcc = fcc.concat(lcc);
 
@@ -239,8 +209,7 @@ public class MyDBHandler extends AppCompatActivity {
             nysn = String.valueOf(num);
             nys = nys.concat(nysn);
 
-        }
-        else if(num<1000){
+        } else if (num < 1000) {
             fc = fname.charAt(0);
             lc = lname.charAt(0);
 
@@ -250,7 +219,7 @@ public class MyDBHandler extends AppCompatActivity {
             lcc = String.valueOf(lc);
             lcc = lcc.toUpperCase();
 
-            ny = "16" ;
+            ny = "16";
             no2 = "0";
             fcc = fcc.concat(lcc);
 
@@ -265,10 +234,10 @@ public class MyDBHandler extends AppCompatActivity {
         return nys;
     }
 
-    public String genID1(String fname,String lname){
-        String year,ny,nys="",nysn,fcc,lcc,fcc1,id;
-        char fc,fc1,lc;
-        String no2,test;
+    public String genID1(String fname, String lname) {
+        String year, ny, nys = "", nysn, fcc, lcc, fcc1, id;
+        char fc, fc1, lc;
+        String no2, test;
         int num = 0;
 
 
@@ -288,9 +257,7 @@ public class MyDBHandler extends AppCompatActivity {
         }
 
 
-
-
-        if (num<10){
+        if (num < 10) {
             fc = fname.charAt(0);
             lc = lname.charAt(0);
 
@@ -300,7 +267,7 @@ public class MyDBHandler extends AppCompatActivity {
             lcc = String.valueOf(lc);
             lcc = lcc.toUpperCase();
 
-            ny = "16" ;
+            ny = "16";
             no2 = "000";
             fcc = fcc.concat(lcc);
 
@@ -310,8 +277,7 @@ public class MyDBHandler extends AppCompatActivity {
             nysn = String.valueOf(num);
             nys = nys.concat(nysn);
 
-        }
-        else if(num<100){
+        } else if (num < 100) {
             fc = fname.charAt(0);
             lc = lname.charAt(0);
 
@@ -321,7 +287,7 @@ public class MyDBHandler extends AppCompatActivity {
             lcc = String.valueOf(lc);
             lcc = lcc.toUpperCase();
 
-            ny = "16" ;
+            ny = "16";
             no2 = "00";
             fcc = fcc.concat(lcc);
 
@@ -331,8 +297,7 @@ public class MyDBHandler extends AppCompatActivity {
             nysn = String.valueOf(num);
             nys = nys.concat(nysn);
 
-        }
-        else if(num<1000){
+        } else if (num < 1000) {
             fc = fname.charAt(0);
             lc = lname.charAt(0);
 
@@ -342,7 +307,7 @@ public class MyDBHandler extends AppCompatActivity {
             lcc = String.valueOf(lc);
             lcc = lcc.toUpperCase();
 
-            ny = "16" ;
+            ny = "16";
             no2 = "0";
             fcc = fcc.concat(lcc);
 
@@ -358,8 +323,7 @@ public class MyDBHandler extends AppCompatActivity {
     }
 
 
-
-    public boolean checkEmail(String e){
+    public boolean checkEmail(String e) {
 
         int n = 1;
 
@@ -368,45 +332,41 @@ public class MyDBHandler extends AppCompatActivity {
                 null, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
-            do
-            {
+            do {
 
                 String productname = cursor.getString(cursor.getColumnIndex("email"));
 
-                if(productname.equals(e.toLowerCase())){
+                if (productname.equals(e.toLowerCase())) {
                     Toast.makeText(context, " Email Already Registered ", Toast.LENGTH_LONG).show();
                     b = false;
                     Toast.makeText(context, " Try to Login using your Email ", Toast.LENGTH_LONG).show();
                 }
 
-            }while(cursor.moveToNext());
+            } while (cursor.moveToNext());
             cursor.close();
         }
         return b;
     }
 
 
-    public String checkRecord(Product p){
+    public String checkRecord(Product p) {
 
         String test = "";
 
-        if(p.get_email().equals("")){
+        if (p.get_email().equals("")) {
 
-            if(p.get_pass().equals("")){
+            if (p.get_pass().equals("")) {
                 test = "abc";
-            }
-            else{
+            } else {
                 test = "empty";
             }
 
-        }
-        else{
+        } else {
             Cursor cursor = sqLiteDatabase.query(TABLE_NAME, null, null,
                     null, null, null, null);
 
             if (cursor != null && cursor.moveToFirst()) {
-                do
-                {
+                do {
                     String productname1 = p.get_email();
                     String password1 = p.get_pass();
                     String productname = cursor.getString(cursor.getColumnIndex("email"));
@@ -415,30 +375,26 @@ public class MyDBHandler extends AppCompatActivity {
                     String lname = cursor.getString(cursor.getColumnIndex("lname"));
                     String tid = cursor.getString(cursor.getColumnIndex("_id"));
 
-                     if(!productname.equals(productname1) && !password.equals(password1)){
+                    if (!productname.equals(productname1) && !password.equals(password1)) {
                         test = "wc";
 
-                    }
-                    else if(!productname.equals(productname1) && password.equals(password1)){
+                    } else if (!productname.equals(productname1) && password.equals(password1)) {
                         test = "we";
-                    }
-                    else if(productname.equals(productname1) && !password.equals(password1)){
+                    } else if (productname.equals(productname1) && !password.equals(password1)) {
                         test = "wp";
-                    }
-                    else if(productname.equals(productname1) && password.equals(password1)){
+                    } else if (productname.equals(productname1) && password.equals(password1)) {
                         Toast.makeText(context, " Welcome to F.O.E.H.N : )", Toast.LENGTH_LONG).show();
                         test = "yeah";
-                         tfname=fname;
-                         tlname=lname;
-                         tnum = Integer.parseInt(tid);
+                        tfname = fname;
+                        tlname = lname;
+                        tnum = Integer.parseInt(tid);
                         break;
-                    }
-                    else{
+                    } else {
                         Toast.makeText(context, " TRY AGAIN ", Toast.LENGTH_LONG).show();
 
                     }
 
-                }while(cursor.moveToNext());
+                } while (cursor.moveToNext());
                 cursor.close();
             }
         }
