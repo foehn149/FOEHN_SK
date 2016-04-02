@@ -17,6 +17,7 @@
     <string name="title_activity_contactus">Contact us</string>
     <string name="title_activity_aboutus">About us</string>
     <string name="title_activity_home_after">Home</string>
+    <string name="title_activity_print">Invoice Print</string>
 
     <!-- Strings related to login -->
     <string name="email">Email</string>
@@ -159,15 +160,20 @@
     <string name="amount">Amount</string>
 
     <!-- Srting related to size-->
-    <string name="xs">XS " ( Extra Small : 38 ) "</string>
-    <string name="s">S " ( Small : 39 ) "</string>
-    <string name="m">M " ( Medium : 40 ) " </string>
-    <string name="l">L " ( Large : 42 ) "</string>
-    <string name="xl">XL " ( Extra Large : 44 ) "</string>
-    <string name="xxl">XXL " ( Double Extra Large : 46 ) "</string>
+    <string name="xs">XS " ( Extra Small : 34 ) "</string>
+    <string name="s">S " ( Small : 36 ) "</string>
+    <string name="m">M " ( Medium : 38 ) " </string>
+    <string name="l">L " ( Large : 40 ) "</string>
+    <string name="xl">XL " ( Extra Large : 42 ) "</string>
+    <string name="xxl">XXL " ( Double Extra Large : 44 ) "</string>
+
     <string name="size">Size</string>
 
+    <!-- Srting related to store-->
     <string name="left">&lt;</string>
     <string name="right">></string>
+
+    <string name="print_string">Print</string>
+
 
 </resources>

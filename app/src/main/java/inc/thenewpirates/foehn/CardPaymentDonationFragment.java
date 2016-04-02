@@ -8,10 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class CardPayment1Fragment extends Fragment {
+public class CardPaymentDonationFragment extends Fragment {
 
-    public CardPayment1Fragment() {
-        // Required empty public constructor
+    public CardPaymentDonationFragment() {
     }
 
     @Override
@@ -22,8 +21,7 @@ public class CardPayment1Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cardpayment1, container, false);
+        return inflater.inflate(R.layout.fragment_cardpaymentdonation, container, false);
     }
 
 

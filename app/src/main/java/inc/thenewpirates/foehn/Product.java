@@ -10,7 +10,6 @@ public class Product {
     private String _email;
     private String _pass;
     private String _cpass;
-    private String _gender;
 
     public Product(String fname, String lname, String mobile, String dob, String email, String pass, String cpass) {
         this._fname = fname;
@@ -95,12 +94,5 @@ public class Product {
         this._cpass = cpass;
     }
 
-    public String get_gender() {
-        return _gender;
-    }
-
-    public void set_gender(String gender) {
-        this._gender = gender;
-    }
 }
 

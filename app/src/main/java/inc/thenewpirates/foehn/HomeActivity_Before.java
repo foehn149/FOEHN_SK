@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -13,11 +15,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.google.android.gms.appindexing.Action;
@@ -35,7 +37,6 @@ public class HomeActivity_Before extends AppCompatActivity {
     NavigationView navView;
     ActionBarDrawerToggle drawerToggle;
     Intent intent = new Intent();
-    TextView textview;
     int[] resources = {
             R.drawable.food_c,
             R.drawable.orphan_c,
@@ -51,13 +52,9 @@ public class HomeActivity_Before extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_before);
-
-        // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // Find our drawer view
         mdrawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        // Setup drawer toggle
         setNavigationDrawer();
         drawerToggle = new ActionBarDrawerToggle(
                 this,
@@ -77,29 +74,35 @@ public class HomeActivity_Before extends AppCompatActivity {
         };
         mdrawerlayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-        // Get the ViewFlipper
         mViewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
 
-        // Add all the images to the ViewFlipper
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
+        //int densityDpi = dm.densityDpi;
+        //Log.e("Height","height="+height);
+        //Log.e("Width","width="+width);
+        //Log.e("Dpi","Dpi="+densityDpi);
+
         for (int resource : resources) {
-            imageView = new ImageView(this);
-            imageView.setImageResource(resource);
+            Bitmap bMap = BitmapFactory.decodeResource(getResources(), resource);
+            Bitmap bMapScaled = Bitmap.createScaledBitmap(bMap, width, height, true);
+            imageView = new ImageView(HomeActivity_Before.this);
+            imageView.setImageBitmap(bMapScaled);
             mViewFlipper.addView(imageView);
         }
-        // Set in/out flipping animations
-        // flip every 2 seconds (2000ms)
+
         if (mViewFlipper != null) {
             mViewFlipper.setAutoStart(true);
             mViewFlipper.setFlipInterval(3000);
         }
 
-        t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+        t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
-                if(status != TextToSpeech.ERROR) {
+                if (status != TextToSpeech.ERROR) {
                     t1.setLanguage(Locale.UK);
                 }
             }
@@ -127,27 +130,18 @@ public class HomeActivity_Before extends AppCompatActivity {
         getSupportFragmentManager().popBackStack();
         mdrawerlayout.closeDrawer(GravityCompat.START);
         if (id == R.id.nav_home) {
-            for (int resource : resources) {
-                imageView = new ImageView(HomeActivity_Before.this);
-                imageView.setImageResource(resource);
-                mViewFlipper.addView(imageView);
-            }
-            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.HomeActivity_Before");
             startActivity(intent);
 
         } else if (id == R.id.nav_donation) {
-            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.DonationActivity_Before");
             startActivity(intent);
 
         } else if (id == R.id.nav_store) {
-            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.StoreActivity_Before");
             startActivity(intent);
 
         } else if (id == R.id.nav_contactus) {
-            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.ContactusActivity_Before");
             startActivity(intent);
 
@@ -161,7 +155,7 @@ public class HomeActivity_Before extends AppCompatActivity {
     @Override
     protected void onPause() {
 
-        if(t1 !=null){
+        if (t1 != null) {
             t1.stop();
             t1.shutdown();
         }
@@ -182,39 +176,34 @@ public class HomeActivity_Before extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // The action bar home_before/up action should open or close the drawer.
         int id = item.getItemId();
         if (id == R.id.home) {
             mdrawerlayout.openDrawer(GravityCompat.START);
+        } else if (id == R.id.elizabeth) {
+            speakBaby();
         } else if (id == R.id.aboutus) {
             mdrawerlayout.closeDrawer(GravityCompat.START);
-            // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.AboutusActivity_Before");
             startActivity(intent);
-        }
-        else if (id == R.id.elizabeth){
-            speakBaby();
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void speakBaby(){
+    public void speakBaby() {
 
-        abc=" Hi , I am Elizabeth . welcome to phonn. I am a donation application created by the new pirates . i am here to help u exploring the application . Here you can either donate money for diffrent categories like food, orphans, education, health, natural calamities, or u can buy our products. please sign up or  login to Buy the products or donating the money. For help u can convey by sending queries to e mail given in contact us. dont forget to give feed back. have a good day, enjoy the application.";
+        abc = " Hi , I am Elizabeth . welcome to phonn. I am a donation application created by the new pirates . i am here to help u exploring the application . Here you can either donate money for diffrent categories like food, orphans, education, health, natural calamities, or u can buy our products. please sign up or  login to Buy the products or donating the money. For help u can convey by sending queries to e mail given in contact us. dont forget to give feed back. have a good day, enjoy the application.";
         t1.speak(abc, TextToSpeech.QUEUE_FLUSH, null);
     }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
         drawerToggle.syncState();
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home_before, menu);
         return true;
     }
@@ -222,7 +211,6 @@ public class HomeActivity_Before extends AppCompatActivity {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        // Pass any configuration change to the drawer toggles
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
@@ -257,10 +245,10 @@ public class HomeActivity_Before extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+        t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
-                if(status != TextToSpeech.ERROR) {
+                if (status != TextToSpeech.ERROR) {
                     t1.setLanguage(Locale.UK);
                 }
             }

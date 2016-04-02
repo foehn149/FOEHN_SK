@@ -44,11 +44,10 @@ public class MyDBHandler extends AppCompatActivity {
                     + CPASS
                     + " text"
                     + ");";
-    SignupActivity s1;
     Intent intent;
     int no = 1;
     String tfname, tlname;
-    int tnum, id1;
+    int tnum;
     private EmployeeHelper employeeHelper;
     private SQLiteDatabase sqLiteDatabase;
     private Context context;
@@ -127,7 +126,6 @@ public class MyDBHandler extends AppCompatActivity {
     }
 
     public String returnFname() {
-        String fname = "";
         Cursor cursor = sqLiteDatabase.query(TABLE_NAME, null, null,
                 null, null, null, null);
 
@@ -144,7 +142,6 @@ public class MyDBHandler extends AppCompatActivity {
     }
 
     public String returnLname() {
-        String lname = "";
         Cursor cursor = sqLiteDatabase.query(TABLE_NAME, null, null,
                 null, null, null, null);
 
@@ -162,9 +159,9 @@ public class MyDBHandler extends AppCompatActivity {
 
 
     public String genID(String fname, String lname) {
-        String year, ny, nys = "", nysn, fcc, lcc, fcc1, id;
-        char fc, fc1, lc;
-        String no2, test = "";
+        String ny, nysn, fcc, lcc, nys = "";
+        char fc, lc;
+        String no2;
         int num;
         num = tnum;
 
@@ -235,8 +232,8 @@ public class MyDBHandler extends AppCompatActivity {
     }
 
     public String genID1(String fname, String lname) {
-        String year, ny, nys = "", nysn, fcc, lcc, fcc1, id;
-        char fc, fc1, lc;
+        String ny, nysn, fcc, lcc, nys = "";
+        char fc, lc;
         String no2, test;
         int num = 0;
 
@@ -324,8 +321,6 @@ public class MyDBHandler extends AppCompatActivity {
 
 
     public boolean checkEmail(String e) {
-
-        int n = 1;
 
         boolean b = true;
         Cursor cursor = sqLiteDatabase.query(TABLE_NAME, null, null,

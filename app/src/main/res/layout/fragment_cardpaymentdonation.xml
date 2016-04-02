@@ -1,0 +1,90 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardpaymentfragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="inc.thenewpirates.foehn.CardPaymentDonationFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+
+            <Button
+                android:id="@+id/cardpaymenttitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:background="#00ffffff"
+                android:gravity="center"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:text="@string/cardpaymentdetail"
+                android:textSize="@dimen/textsizebig" />
+
+            <EditText
+                android:id="@+id/cardnameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:width="300dp"
+                android:gravity="center"
+                android:hint="@string/cardnameInput"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/cardnoInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:width="300dp"
+                android:gravity="center"
+                android:hint="@string/cardnoInput"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/expirydateInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:width="300dp"
+                android:gravity="center"
+                android:hint="@string/expirydateInput"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/cvvInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:width="300dp"
+                android:gravity="center"
+                android:hint="@string/cvvInput"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/continueprocedure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                android:enabled="true"
+                android:onClick="printdonationprocess"
+                android:text="@string/continueprocedure" />
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

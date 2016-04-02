@@ -7,23 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class PaymentMethod1Fragment extends Fragment {
+public class NetBankingStoreFragment extends Fragment {
 
-    public PaymentMethod1Fragment() {
-        // Required empty public constructor
+    public NetBankingStoreFragment() {
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_paymentmethod1, container, false);
+        return inflater.inflate(R.layout.fragment_netbankingstore, container, false);
     }
 
     @Override

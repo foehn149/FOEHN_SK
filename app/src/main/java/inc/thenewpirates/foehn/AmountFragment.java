@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 public class AmountFragment extends Fragment {
 
     public AmountFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -22,14 +21,12 @@ public class AmountFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_amount, container, false);
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
     }
 
     @Override

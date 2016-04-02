@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class NaturalCalamitiesDonateFragment extends Fragment {
+public class NetBankingDonationFragment extends Fragment {
 
-    public NaturalCalamitiesDonateFragment() {
+    public NetBankingDonationFragment() {
     }
 
     @Override
@@ -21,9 +21,8 @@ public class NaturalCalamitiesDonateFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_natural_calamities_donate, container, false);
+        return inflater.inflate(R.layout.fragment_netbankingdonation, container, false);
     }
-
 
     @Override
     public void onAttach(Context context) {

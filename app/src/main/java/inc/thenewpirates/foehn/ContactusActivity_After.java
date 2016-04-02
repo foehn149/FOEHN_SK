@@ -3,6 +3,7 @@ package inc.thenewpirates.foehn;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -56,13 +57,18 @@ public class ContactusActivity_After extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // getSupportFragmentManager().popBackStack();
-        super.onBackPressed();
-        FrameLayout fm = (FrameLayout) findViewById(R.id.nav_contactus);
-        if (fm != null) {
-            fm.removeAllViews();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        int count = fragmentManager.getBackStackEntryCount();
+
+        if (count > 0) {
+            fragmentManager.popBackStack();
+        } else {
+            super.onBackPressed();
         }
-        View.inflate(this, R.layout.activity_contactus_after, fm);
+        if (count == 1) {
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.nav_contactus);
+            View.inflate(this, R.layout.activity_contactus_after, frameLayout);
+        }
     }
 }
 

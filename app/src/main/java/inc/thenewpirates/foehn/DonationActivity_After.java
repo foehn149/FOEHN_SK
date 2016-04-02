@@ -3,11 +3,11 @@ package inc.thenewpirates.foehn;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 public class DonationActivity_After extends AppCompatActivity {
     Intent intent;
@@ -59,9 +59,10 @@ public class DonationActivity_After extends AppCompatActivity {
 
     }
 
-    public void furtherprocess(View v) {
-        Toast.makeText(this, " Have Patience ..Work is Under Progress ", Toast.LENGTH_LONG).show();
+    public void printdonationprocess(View v) {
 
+        intent = new Intent(this, PrintDonationActivity.class);
+        startActivity(intent);
     }
 
     public void amountprocess(View view) {
@@ -73,21 +74,21 @@ public class DonationActivity_After extends AppCompatActivity {
 
     public void paymentmethod(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_donation, new PaymentMethod1Fragment());
+        transaction.replace(R.id.nav_donation, new PaymentMethodDonationFragment());
         transaction.addToBackStack("Payment Method");
         transaction.commit();
     }
 
     public void cardpaymentprocess(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_donation, new CardPayment1Fragment());
+        transaction.replace(R.id.nav_donation, new CardPaymentDonationFragment());
         transaction.addToBackStack("Card Payment");
         transaction.commit();
     }
 
     public void netbankingprocess(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_donation, new NetBanking1Fragment());
+        transaction.replace(R.id.nav_donation, new NetBankingDonationFragment());
         transaction.addToBackStack("Net Banking");
         transaction.commit();
     }
@@ -143,14 +144,18 @@ public class DonationActivity_After extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        getSupportFragmentManager().popBackStack();
-        super.onBackPressed();
-        FrameLayout fm = (FrameLayout) findViewById(R.id.nav_donation);
-        if (fm != null) {
-            fm.removeAllViews();
-        }
-        View.inflate(this, R.layout.activity_donation_after, fm);
-    }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        int count = fragmentManager.getBackStackEntryCount();
 
+        if (count > 0) {
+            fragmentManager.popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+        if (count == 1) {
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.nav_donation);
+            View.inflate(this, R.layout.activity_donation_after, frameLayout);
+        }
+    }
 }
 

@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 public class OrphanDonateFragment extends Fragment {
     public OrphanDonateFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -21,7 +20,6 @@ public class OrphanDonateFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_orphan_donate, container, false);
     }
 

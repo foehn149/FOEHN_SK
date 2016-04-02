@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,12 +13,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 public class StoreActivity_After extends AppCompatActivity {
     ImageView iv;
-    TextView storeText;
+    TextView storeText, storeText2;
     Context context;
     String c = "";
     ImageSwitcher sw;
@@ -29,6 +29,7 @@ public class StoreActivity_After extends AppCompatActivity {
         setContentView(R.layout.activity_store_after);
 
         storeText = (TextView) findViewById(R.id.storeText);
+        storeText2 = (TextView) findViewById(R.id.storeText2);
 
         sw = (ImageSwitcher) findViewById(R.id.imageSwitcher);
         sw.setFactory(new ViewSwitcher.ViewFactory() {
@@ -40,44 +41,36 @@ public class StoreActivity_After extends AppCompatActivity {
                 return iv;
             }
         });
-        //sw.setImageResource(R.drawable.tv1);
         sw.setImageResource(R.drawable.tv1);
         c = "tv1";
         storeText.setText("Boys T-Shirt");
+        storeText2.setText("Rs. 100");
         Runtime.getRuntime().maxMemory();
     }
 
     public void imageClicked(View view) {
 
-        /*int id=view.getId();
-        if(id==R.id.storeText)*/
         FrameLayout fm = (FrameLayout) findViewById(R.id.nav_store);
         if (fm != null) {
             fm.removeAllViews();
         }
         switch (c) {
             case "ltv1":
-                //storeText.setText(" Buy Girls T-Shirt ");
                 sizemethod();
                 break;
             case "wbv1":
-                //storeText.setText(" Buy Wrist Band ");
                 sizemethod();
                 break;
             case "cv1":
-                //storeText.setText(" Buy Cap ");
                 sizemethod();
                 break;
             case "hkv1":
-                //storeText.setText(" Buy Handkerchief ");
                 sizemethod();
                 break;
             case "hv1":
-                //storeText.setText(" Buy Hoody ");
                 sizemethod();
                 break;
             case "tv1":
-                //storeText.setText(" Buy Boys T-Shirt");
                 sizemethod();
                 break;
         }
@@ -90,33 +83,37 @@ public class StoreActivity_After extends AppCompatActivity {
                 sw.setImageResource(R.drawable.tv1);
                 c = "tv1";
                 storeText.setText("Boys T-Shirt");
+                storeText2.setText("Rs. 100");
                 break;
             case "wbv1":
                 sw.setImageResource(R.drawable.cv1);
                 c = "cv1";
                 storeText.setText("Cap");
+                storeText2.setText("Rs. 70");
                 break;
             case "cv1":
                 sw.setImageResource(R.drawable.hkv1);
                 c = "hkv1";
                 storeText.setText("Handkerchief");
+                storeText2.setText("Rs. 25");
                 break;
             case "hkv1":
                 sw.setImageResource(R.drawable.hv1);
                 c = "hv1";
                 storeText.setText("Hoody");
-
+                storeText2.setText("Rs. 300");
                 break;
             case "hv1":
                 sw.setImageResource(R.drawable.ltv1);
                 c = "ltv1";
                 storeText.setText("Girls T-Shirt");
+                storeText2.setText("Rs. 150");
                 break;
             case "tv1":
                 sw.setImageResource(R.drawable.wbv1);
                 c = "wbv1";
-                storeText.setText("Wrist Band");
-
+                storeText.setText("WristBand");
+                storeText2.setText("Rs. 30");
                 break;
         }
 
@@ -129,39 +126,45 @@ public class StoreActivity_After extends AppCompatActivity {
                 sw.setImageResource(R.drawable.ltv1);
                 c = "ltv1";
                 storeText.setText("Girls T-Shirt");
+                storeText2.setText("Rs. 150");
                 break;
             case "ltv1":
                 sw.setImageResource(R.drawable.hv1);
                 c = "hv1";
                 storeText.setText("Hoody");
+                storeText2.setText("Rs. 300");
                 break;
             case "hv1":
                 sw.setImageResource(R.drawable.hkv1);
                 c = "hkv1";
                 storeText.setText("Handkerchief");
+                storeText2.setText("Rs. 25");
                 break;
             case "hkv1":
                 sw.setImageResource(R.drawable.cv1);
                 c = "cv1";
                 storeText.setText("Cap");
+                storeText2.setText("Rs. 70");
                 break;
             case "cv1":
                 sw.setImageResource(R.drawable.wbv1);
                 c = "wbv1";
                 storeText.setText("Wrist Band");
+                storeText2.setText("Rs. 30");
                 break;
             case "wbv1":
                 sw.setImageResource(R.drawable.tv1);
                 c = "tv1";
                 storeText.setText("Boys T-Shirt");
+                storeText2.setText("Rs. 100");
                 break;
         }
 
     }
 
-    public void furtherprocess(View v) {
-        Toast.makeText(this, " Have Patience ..Work is Under Progress ", Toast.LENGTH_LONG).show();
-
+    public void printstoreprocess(View v) {
+        intent = new Intent(this, PrintStoreActivity.class);
+        startActivity(intent);
     }
 
     public void sizemethod() {
@@ -173,21 +176,21 @@ public class StoreActivity_After extends AppCompatActivity {
 
     public void paymentmethod(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_store, new PaymentMethod1Fragment());
+        transaction.replace(R.id.nav_store, new PaymentMethodStoreFragment());
         transaction.addToBackStack("Payment Method");
         transaction.commit();
     }
 
     public void cardpaymentprocess(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_store, new CardPayment1Fragment());
+        transaction.replace(R.id.nav_store, new CardPaymentStoreFragment());
         transaction.addToBackStack("Card Payment");
         transaction.commit();
     }
 
     public void netbankingprocess(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_store, new NetBanking1Fragment());
+        transaction.replace(R.id.nav_store, new NetBankingStoreFragment());
         transaction.addToBackStack("Net Banking");
         transaction.commit();
     }
@@ -243,16 +246,35 @@ public class StoreActivity_After extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        getSupportFragmentManager().popBackStack();
-        super.onBackPressed();
-        FrameLayout fm = (FrameLayout) findViewById(R.id.nav_store);
-        View.inflate(this, R.layout.activity_store_after, fm);
-        if (fm != null) {
-            fm.removeAllViews();
-            getSupportFragmentManager().popBackStack();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        int count = fragmentManager.getBackStackEntryCount();
+
+        if (count > 0) {
+            fragmentManager.popBackStack();
+        } else {
             super.onBackPressed();
         }
+        if (count == 1) {
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.nav_store);
+            View.inflate(this, R.layout.activity_store_after, frameLayout);
+            storeText = (TextView) findViewById(R.id.storeText);
+            storeText2 = (TextView) findViewById(R.id.storeText2);
 
+            sw = (ImageSwitcher) findViewById(R.id.imageSwitcher);
+            sw.setFactory(new ViewSwitcher.ViewFactory() {
+                @Override
+                public View makeView() {
+                    iv = new ImageView(getApplicationContext());
+                    iv.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                    iv.setLayoutParams(new ImageSwitcher.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                    return iv;
+                }
+            });
+            sw.setImageResource(R.drawable.tv1);
+            c = "tv1";
+            storeText.setText("Boys T-Shirt");
+            storeText2.setText("Rs. 100");
+        }
     }
 }
 

@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,6 +16,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,12 +48,9 @@ public class HomeActivity_After extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) throws NullPointerException {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_after);
-        // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // Find our drawer view
         mdrawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        // Setup drawer toggle
         setNavigationDrawer();
         drawerToggle = new ActionBarDrawerToggle(
                 this,
@@ -72,15 +72,23 @@ public class HomeActivity_After extends AppCompatActivity {
         drawerToggle.syncState();
 
         mViewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
+        //int densityDpi = dm.densityDpi;
+        //Log.e("Height","height="+height);
+        //Log.e("Width","width="+width);
+        //Log.e("Dpi","Dpi="+densityDpi);
 
-        // Add all the images to the ViewFlipper
         for (int resource : resources) {
-            imageView = new ImageView(this);
-            imageView.setImageResource(resource);
+            Bitmap bMap = BitmapFactory.decodeResource(getResources(), resource);
+            Bitmap bMapScaled = Bitmap.createScaledBitmap(bMap, width, height, true);
+            imageView = new ImageView(HomeActivity_After.this);
+            imageView.setImageBitmap(bMapScaled);
             mViewFlipper.addView(imageView);
         }
-        // Set in/out flipping animations
-        // flip every 2 seconds (2000ms)
+
         if (mViewFlipper != null) {
             mViewFlipper.setAutoStart(true);
             mViewFlipper.setFlipInterval(3000);
@@ -89,7 +97,6 @@ public class HomeActivity_After extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("file", Context.MODE_PRIVATE);
         AfterLoginId = (TextView) findViewById(R.id.AfterLoginId);
         AfterLoginId2 = (TextView) findViewById(R.id.AfterLoginId2);
-        // AfterLoginId.setText("Yeah");
         if (sp.contains("fname")) {
             String fname = sp.getString("fname", "");
             String lname = sp.getString("lname", "");
@@ -125,27 +132,18 @@ public class HomeActivity_After extends AppCompatActivity {
         getSupportFragmentManager().popBackStack();
         mdrawerlayout.closeDrawer(GravityCompat.START);
         if (id == R.id.nav_home) {
-            for (int resource : resources) {
-                imageView = new ImageView(HomeActivity_After.this);
-                imageView.setImageResource(resource);
-                mViewFlipper.addView(imageView);
-            }
-            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.HomeActivity_After");
             startActivity(intent);
 
         } else if (id == R.id.nav_donation) {
-            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.DonationActivity_After");
             startActivity(intent);
 
         } else if (id == R.id.nav_store) {
-            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.StoreActivity_After");
             startActivity(intent);
 
         } else if (id == R.id.nav_contactus) {
-            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.ContactusActivity_After");
             startActivity(intent);
 
@@ -163,11 +161,10 @@ public class HomeActivity_After extends AppCompatActivity {
 
     public void notifyMe(){
         n.setSmallIcon(R.drawable.ic_launcher);
-        n.setTicker("Successfully Logged out");
+        n.setTicker("Successfully Logged out.");
         n.setWhen(System.currentTimeMillis());
         n.setContentTitle("Thank You !");
         n.setContentText("Successfully logged out.");
-        n.setVisibility(View.GONE);
 
         Intent i = new Intent(this,HomeActivity_Before.class);
         PendingIntent p = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -193,14 +190,11 @@ public class HomeActivity_After extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // The action bar home_before/up action should open or close the drawer.
-
         int id = item.getItemId();
         if (id == R.id.home) {
             mdrawerlayout.openDrawer(GravityCompat.START);
         } else if (id == R.id.aboutus) {
             mdrawerlayout.closeDrawer(GravityCompat.START);
-            // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.AboutusActivity_After");
             startActivity(intent);
         }
@@ -210,14 +204,12 @@ public class HomeActivity_After extends AppCompatActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
         drawerToggle.syncState();
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home_after, menu);
         return true;
     }
@@ -225,7 +217,6 @@ public class HomeActivity_After extends AppCompatActivity {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        // Pass any configuration change to the drawer toggles
         drawerToggle.onConfigurationChanged(newConfig);
     }
 }

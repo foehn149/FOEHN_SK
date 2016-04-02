@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 public class EducationDonateFragment extends Fragment {
 
     public EducationDonateFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -22,7 +21,6 @@ public class EducationDonateFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_education_donate, container, false);
 
     }

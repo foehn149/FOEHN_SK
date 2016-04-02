@@ -2,11 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="inc.thenewpirates.foehn">
 
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -157,6 +155,29 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="inc.thenewpirates.foehn.HomeActivity_After" />
+        </activity>
+        <activity
+            android:name=".PrintDonationActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
+            android:hardwareAccelerated="true"
+            android:label="@string/title_activity_print"
+            android:launchMode="singleTask"
+            android:parentActivityName=".DonationActivity_After">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="inc.thenewpirates.foehn.DonationActivity_After" />
+        </activity>
+
+        <activity
+            android:name=".PrintStoreActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
+            android:hardwareAccelerated="true"
+            android:label="@string/title_activity_print"
+            android:launchMode="singleTask"
+            android:parentActivityName=".DonationActivity_After">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="inc.thenewpirates.foehn.DonationActivity_After" />
         </activity>
     </application>
 

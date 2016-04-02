@@ -7,10 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+public class CardPaymentStoreFragment extends Fragment {
 
-public class NaturalCalamitiesDonateFragment extends Fragment {
-
-    public NaturalCalamitiesDonateFragment() {
+    public CardPaymentStoreFragment() {
     }
 
     @Override
@@ -21,9 +20,8 @@ public class NaturalCalamitiesDonateFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_natural_calamities_donate, container, false);
+        return inflater.inflate(R.layout.fragment_cardpaymentstore, container, false);
     }
-
 
     @Override
     public void onAttach(Context context) {
