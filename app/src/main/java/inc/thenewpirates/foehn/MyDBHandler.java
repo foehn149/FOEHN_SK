@@ -6,8 +6,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MyDBHandler extends AppCompatActivity {
 
@@ -89,7 +93,10 @@ public class MyDBHandler extends AppCompatActivity {
             no = 242;
         } else if (p.get_email().equals("")) {
             no = 25;
-        } else if (p.get_pass().equals("")) {
+        }else if (!isEmailValid(p.get_email().toLowerCase())) {
+            no  = 255;
+        }
+        else if (p.get_pass().equals("")) {
             no = 26;
         } else if (p.get_cpass().equals("")) {
             no = 27;
@@ -123,6 +130,14 @@ public class MyDBHandler extends AppCompatActivity {
 
         }
         return no;
+    }
+
+    private boolean isEmailValid(String email) {
+        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 
     public String returnFname() {

@@ -118,8 +118,8 @@ public class SignupActivity extends AppCompatActivity {
                 Snackbar.make(view, " Please enter email .", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 emailInput.setText("");
-            } else if (!isEmailValid(email.toLowerCase())) {
-                Snackbar.make(view, "Please enter your valid Email .", Snackbar.LENGTH_LONG)
+            } else if (c == 255) {
+                Snackbar.make(view, " Please enter valid email .", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 emailInput.setText("");
             } else if (c == 26) {
@@ -162,14 +162,6 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
-
-    private boolean isEmailValid(String email) {
-        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
 
 
     @Override
