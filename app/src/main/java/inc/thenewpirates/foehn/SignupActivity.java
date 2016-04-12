@@ -12,18 +12,15 @@ import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.EditText;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class SignupActivity extends AppCompatActivity {
 
 
+    private static final int uid = 1234;
     MyDBHandler dbHandler;
     Context context;
     Intent intent;
     Product p;
     NotificationCompat.Builder n;
-    private static final int uid = 1234;
     EditText fnameInput, lnameInput, mobileInput, dobInput, emailInput, passInput, cpassInput;
 
 
@@ -147,7 +144,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     public void notifyMe(String id){
-        n.setSmallIcon(R.drawable.ic_launcher);
+        n.setSmallIcon(R.mipmap.ic_launcher);
         n.setTicker("Successfully Signed Up");
         n.setWhen(System.currentTimeMillis());
         n.setContentTitle("Welcome to F.O.E.H.N.");

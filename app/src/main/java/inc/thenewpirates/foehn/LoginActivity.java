@@ -19,12 +19,12 @@ import java.util.regex.Pattern;
 public class LoginActivity extends AppCompatActivity {
 
 
+    private static final int uid = 1235;
     EditText fnameInput, lnameInput, mobileInput, dobInput, emailInput, passInput, cpassInput;
     FloatingActionButton fab;
     Intent i;
     MyDBHandler dbHandler;
     NotificationCompat.Builder n;
-    private static final int uid = 1235;
     Product p;
 
     @Override
@@ -124,7 +124,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void notifyMe(String id){
-        n.setSmallIcon(R.drawable.ic_launcher);
+        n.setSmallIcon(R.mipmap.ic_launcher);
         n.setTicker("Successfully Logged In");
         n.setWhen(System.currentTimeMillis());
         n.setContentTitle("Welcome to F.O.E.H.N.");

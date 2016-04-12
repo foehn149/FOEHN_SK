@@ -120,7 +120,6 @@ public class HomeActivity_After extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 selectdraweritem(menuItem);
-                navView.getMenu().findItem(R.id.nav_home).setChecked(true);
                 return true;
             }
 
@@ -160,7 +159,7 @@ public class HomeActivity_After extends AppCompatActivity {
     }
 
     public void notifyMe(){
-        n.setSmallIcon(R.drawable.ic_launcher);
+        n.setSmallIcon(R.mipmap.ic_launcher);
         n.setTicker("Successfully Logged out.");
         n.setWhen(System.currentTimeMillis());
         n.setContentTitle("Thank You !");
@@ -182,7 +181,6 @@ public class HomeActivity_After extends AppCompatActivity {
         if (mdrawerlayout != null && mdrawerlayout.isDrawerOpen(GravityCompat.START)) {
             mdrawerlayout.closeDrawer(GravityCompat.START);
         }
-        navView.getMenu().findItem(R.id.nav_home).setChecked(true);
         moveTaskToBack(true);
         android.os.Process.killProcess(android.os.Process.myPid());
         System.exit(1);
@@ -200,6 +198,7 @@ public class HomeActivity_After extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {

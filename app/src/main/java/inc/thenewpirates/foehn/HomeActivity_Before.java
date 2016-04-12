@@ -118,7 +118,6 @@ public class HomeActivity_Before extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 selectdraweritem(menuItem);
-                navView.getMenu().findItem(R.id.nav_home).setChecked(true);
                 return true;
             }
 
@@ -151,7 +150,6 @@ public class HomeActivity_Before extends AppCompatActivity {
         }
 
     }
-
     @Override
     protected void onPause() {
 
@@ -168,10 +166,8 @@ public class HomeActivity_Before extends AppCompatActivity {
         if (mdrawerlayout != null && mdrawerlayout.isDrawerOpen(GravityCompat.START)) {
             mdrawerlayout.closeDrawer(GravityCompat.START);
         } else {
-            navView.getMenu().findItem(R.id.nav_home).setChecked(true);
             super.onBackPressed();
         }
-
     }
 
     @Override
@@ -180,19 +176,15 @@ public class HomeActivity_Before extends AppCompatActivity {
         if (id == R.id.home) {
             mdrawerlayout.openDrawer(GravityCompat.START);
         } else if (id == R.id.elizabeth) {
-            speakBaby();
+            abc = " Hi , I am Elizabeth . welcome to phonn. I am a donation application created by the new pirates . i am here to help u exploring the application . Here you can either donate money for different categories like food, orphans, education, health, natural calamities, or u can buy our products. Please sign up or login to buy the products or donating the money. For help u can convey by sending queries to e mail given in contact us. Dont forget to give feed back. Have a good day, enjoy the application.";
+            //noinspection deprecation
+            t1.speak(abc, TextToSpeech.QUEUE_FLUSH, null);
         } else if (id == R.id.aboutus) {
             mdrawerlayout.closeDrawer(GravityCompat.START);
             intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.AboutusActivity_Before");
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    public void speakBaby() {
-
-        abc = " Hi , I am Elizabeth . welcome to phonn. I am a donation application created by the new pirates . i am here to help u exploring the application . Here you can either donate money for diffrent categories like food, orphans, education, health, natural calamities, or u can buy our products. please sign up or  login to Buy the products or donating the money. For help u can convey by sending queries to e mail given in contact us. dont forget to give feed back. have a good day, enjoy the application.";
-        t1.speak(abc, TextToSpeech.QUEUE_FLUSH, null);
     }
 
     @Override
