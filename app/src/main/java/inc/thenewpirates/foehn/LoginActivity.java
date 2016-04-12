@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText fnameInput, lnameInput, mobileInput, dobInput, emailInput, passInput, cpassInput;
     FloatingActionButton fab;
     Intent i;
+    TextToSpeech t1;
     MyDBHandler dbHandler;
     NotificationCompat.Builder n;
     Product p;
@@ -50,6 +53,16 @@ public class LoginActivity extends AppCompatActivity {
         });
         n = new NotificationCompat.Builder(this);
         n.setAutoCancel(true);
+
+        t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.UK);
+                }
+            }
+        });
+
         Runtime.getRuntime().maxMemory();
     }
 
@@ -114,6 +127,8 @@ public class LoginActivity extends AppCompatActivity {
             notifyMe(id);
             i = new Intent(LoginActivity.this, HomeActivity_After.class);
             startActivity(i);
+            String hello = " Welcome to phonn ";
+            t1.speak(hello, TextToSpeech.QUEUE_FLUSH, null);
         } else {
             Snackbar.make(view, "Your are not Registered , Create new Account . ", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();

@@ -6,11 +6,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.EditText;
+
+import java.util.Locale;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -19,6 +22,7 @@ public class SignupActivity extends AppCompatActivity {
     MyDBHandler dbHandler;
     Context context;
     Intent intent;
+    TextToSpeech t1;
     Product p;
     NotificationCompat.Builder n;
     EditText fnameInput, lnameInput, mobileInput, dobInput, emailInput, passInput, cpassInput;
@@ -40,6 +44,16 @@ public class SignupActivity extends AppCompatActivity {
         cpassInput = (EditText) findViewById(R.id.cpassInput);
         n = new NotificationCompat.Builder(this);
         n.setAutoCancel(true);
+
+        t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.UK);
+                }
+            }
+        });
+
         Runtime.getRuntime().maxMemory();
     }
 
@@ -79,6 +93,8 @@ public class SignupActivity extends AppCompatActivity {
                 notifyMe(id);
                 intent = new Intent(SignupActivity.this, HomeActivity_After.class);
                 startActivity(intent);
+                String hello = " Welcome to phonn ";
+                t1.speak(hello, TextToSpeech.QUEUE_FLUSH, null);
             } else if (c == 21) {
                 Snackbar.make(view, " Please enter first name .", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();

@@ -9,6 +9,7 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,6 +25,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import java.util.Locale;
+
 public class HomeActivity_After extends AppCompatActivity {
 
     private static final int uid = 1236;
@@ -31,6 +34,7 @@ public class HomeActivity_After extends AppCompatActivity {
     Intent intent = new Intent();
     DrawerLayout mdrawerlayout;
     Toolbar toolbar;
+    TextToSpeech t1;
     NavigationView navView;
     ActionBarDrawerToggle drawerToggle;
     int[] resources = {
@@ -110,6 +114,16 @@ public class HomeActivity_After extends AppCompatActivity {
         }
         n = new NotificationCompat.Builder(this);
         n.setAutoCancel(true);
+
+        t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.UK);
+                }
+            }
+        });
+
         Runtime.getRuntime().maxMemory();
     }
 
@@ -154,6 +168,8 @@ public class HomeActivity_After extends AppCompatActivity {
             notifyMe();
             intent.setClassName("inc.thenewpirates.foehn", "inc.thenewpirates.foehn.HomeActivity_Before");
             startActivity(intent);
+            String hello = " Thank U , Have a good day ! ";
+            t1.speak(hello, TextToSpeech.QUEUE_FLUSH, null);
         }
 
     }
